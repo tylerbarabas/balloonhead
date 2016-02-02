@@ -1,0 +1,16 @@
+Core Classes:
+Sprite player
+Tween Player
+Audio player
+Ticker Sequencer
+
+Component Classes:
+Head - singleton
+Audio controls - singleton
+Backdrop - Reusable
+Animation Window - Reusable
+
+
+
+Library:
+Createjs

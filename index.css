@@ -1,0 +1,28 @@
+body {
+  background-image: url(img/outterspace.jpg);
+  background-size: 100% 100%;
+}
+#head {
+  height: 225px;
+  width: 195px;
+  position: absolute;
+  opacity: 0;
+  background-image: url(img/head.png);
+  background-size: 100% 100%;
+  transition: transform 500ms;
+}
+.tiny {
+  transform: scale(.3);
+}
+.small {
+  transform: scale(.5);
+}
+.medium {
+  transform: scale(1);
+}
+.large {
+  transform: scale(1.5);
+}
+.xlarge {
+  transform: scale(2);
+}
