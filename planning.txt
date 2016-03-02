@@ -1,16 +1,9 @@
 Core Classes:
-Sprite player
-Tween Player
-Audio player
-Ticker Sequencer
+AudioPlayer
+EventSequencer
+Stage
+Element
 
 Component Classes:
-Head - singleton
-Audio controls - singleton
-Backdrop - Reusable
-Animation Window - Reusable
-
-
-
-Library:
-Createjs
+AudioPlayer -> audioControls
+Element -> balloonHead
