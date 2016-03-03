@@ -1,11 +1,17 @@
-function Stage() {
-  console.log('init stage');
-  this.domElement = document.getElementById('content-stage');
-  this.cjStage = new createjs.Stage("content-stage");
-}
+define([
+  'lib/tweenjs/lib/tweenjs-0.6.2.min',
+  'lib/easeljs/lib/easeljs-0.8.2.min',
+  'lib/soundjs/lib/soundjs-0.6.2.min'
+],function() {
+  "use strict";
 
-Stage.prototype = {
-  update: function() {
-    this.cjStage.update();
-  }
-};
+  var Stage = {
+    domElement: document.getElementById('content-stage'),
+    cjs: new createjs.Stage("content-stage"),
+    update: function() {
+      this.cjs.update();
+    }
+  };
+
+  return Stage;
+});
