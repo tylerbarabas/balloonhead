@@ -4,7 +4,7 @@ requirejs.config({
     paths: {
         core: '/core_components',
         project: '/project_components',
-        controllers: '/controllers',
+        songs: '/song_sequences',
         lib: '/lib',
     }
 });
@@ -28,7 +28,7 @@ requirejs([
 
 //Load song-controllers
 requirejs([
-  'controllers/song1'
+  'songs/demosong/index'
 ]);
 
 //Load main controller
