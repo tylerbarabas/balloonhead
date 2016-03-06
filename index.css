@@ -6,3 +6,39 @@ body {
   display: block;
   margin: 0 auto;
 }
+
+#audio-controls-container {
+  height: 300px;
+  width: 500px;
+  display: block;
+  margin: 0 auto;
+}
+
+#audio-controls-container ul {
+  list-style-type: none;
+}
+#audio-controls-container ul li{
+  display: inline-block;
+}
+
+.audio-controls {
+  cursor: pointer;
+
+  font-size: 50px;
+  margin: 20px;
+}
+
+.audio-controls#btn-pause {
+  display: none;
+}
+
+.audio-controls#btn-play {
+  opacity: 0.5;
+}
+
+#loading {
+  font-size: 50px;
+  margin: 20px;
+
+  display: none;
+}

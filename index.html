@@ -1,12 +1,22 @@
 <html>
 <head>
   <title>Floating Balloon Head</title>
+  <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="index.css">
   <script type="text/javascript" data-main="dependencies.js" src="lib/require/require.js"></script>
 </head>
 <body>
   <canvas width="900" height="600" id="content-stage"></canvas>
-
-  <!-- <script type="text/javascript" src="index.js"></script> -->
+  <div id="audio-controls-container">
+    <ul>
+      <li>
+        <i class="fa fa-pause audio-controls" id="btn-pause"></i>
+        <i class="fa fa-play audio-controls" id="btn-play"></i>
+      </li>
+      <li id="loading">
+        <i class="fa fa-spinner fa-pulse"></i>
+      </li>
+    </ul>
+  </div>
 </body>
 </html>

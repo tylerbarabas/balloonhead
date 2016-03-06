@@ -16,23 +16,6 @@ requirejs([
   'lib/soundjs/lib/soundjs-0.6.2.min'
 ]);
 
-//Load core dependencies
-requirejs([
-  'core/stage/index',
-  'core/ticker/index',
-  'core/song_sequence/index'
-]);
-
-//Load project dependencies
-requirejs([
-  'project/balloon_head/index'
-]);
-
-//Load song-controllers
-requirejs([
-  'songs/demosong/index'
-]);
-
 //Load main controller
 requirejs([
   'index'

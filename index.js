@@ -1,14 +1,12 @@
 define([
-  'song_sequences/demosong/index',
-],function(demosong){
+  'songs/demosong/index',
+],function(demoSong){
 
   var MainController = {
     init: function() {
-      demosong.init();
+      demoSong.init();
     }
   };
 
-  //init the controller
   MainController.init();
-
 });
