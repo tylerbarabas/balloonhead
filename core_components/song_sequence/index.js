@@ -22,6 +22,8 @@ define([
 
     createjs.Sound.registerPlugins([createjs.WebAudioPlugin, createjs.FlashAudioPlugin]);
 		createjs.Sound.alternateExtensions = ["mp3"];
+
+    console.log('instantiated',this.songEvents);
   }
 
   SongSequence.prototype = {
@@ -38,6 +40,7 @@ define([
       AudioControls.addEvent('pause-btn', this.pause.bind(this));
 
       this.addEvent('songLoaded',this.start.bind(this));
+
     },
 
     onFileLoad: function(evt) {
@@ -55,6 +58,8 @@ define([
       } else {
         this.cjs.play();
       }
+      this.ticker = setInterval(this.tick.bind(this),10);
+
       this.playing = true;
       AudioControls.togglePlayPauseBtn(true);
     },
@@ -63,10 +68,40 @@ define([
       this.cjs.setPaused(true);
       this.playing = false;
       AudioControls.togglePlayPauseBtn(false);
+
+      clearInterval(this.ticker);
+    },
+
+    start: function() {
+      this.play();
+    },
+
+    tick: function() {
+      var position = Math.floor(this.getPosition());
+
+      // if (this.songEvents[0].pos < position) {
+      //   this.songEvents[0].func();
+      //   this.songEvents.pop();
+      // }
+
+      console.log(position,this.songEvents);
+    },
+
+    addSongEvent: function(pos,func) {
+      this.songEvents = this.songEvents || [];
+      this.songEvents.push({pos: pos, func: func});
     },
 
     stop: function() {
       createjs.Sound.stop(this.title);
+    },
+
+    getPosition: function() {
+      return this.cjs.getPosition();
+    },
+
+    setPosition: function(pos) {
+      this.cjs.setPosition(pos);
     },
 
     addEvent: function(evtName,func) {

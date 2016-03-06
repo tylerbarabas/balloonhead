@@ -16,29 +16,20 @@ define([
   Song.prototype = Object.create(SongSequence.prototype);
   Song.prototype.constructor = SongSequence;
 
+  Song.prototype.init = function() {
+    SongSequence.prototype.init.call(this);
+    Song.registerSongEvents();
+  };
 
-  Song.prototype.start = function(){
-    this.play();
+  Song.registerSongEvents = function() {
+    // SongSequence.registerSongEvents.call(this);
+    Song.prototype.addSongEvent.call(this,1000,function() {
+      document.body.style.backgroundColor = "red";
+    });
 
-    Stage.cjs.addChild(BalloonHead);
-      Stage.update();
-
-      var colors = ['blue','purple','red','green'],
-          bgColors = ['purple','red','green','blue'],
-          i=0,
-          size = 50;
-
-      document.body.style.backgroundColor = bgColors[bgColors.length-1];
-
-      setInterval(function(){
-        if (i >= colors.length) i = 0;
-        BalloonHead.graphics.beginFill(colors[i]).drawCircle(0, 0, 100);
-        Stage.update();
-
-        document.body.style.backgroundColor = bgColors[i];
-
-        i++;
-      },333);
+    Song.prototype.addSongEvent.call(this,2000,function() {
+      document.body.style.backgroundColor = "blue";
+    });
   };
 
   if (typeof window['song-'+Song.title] === 'undefined') {
