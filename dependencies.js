@@ -18,7 +18,9 @@ requirejs([
 
 //Load core dependencies
 requirejs([
-  'core/stage/index'
+  'core/stage/index',
+  'core/ticker/index',
+  'core/song_sequence/index'
 ]);
 
 //Load project dependencies
