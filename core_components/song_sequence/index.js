@@ -56,13 +56,14 @@ define([
     },
 
     calculateSubdivisions: function() {
-      var bpms = (this.bpm/60)*1000;
+      var bpms = (60/this.bpm)*1000;
       this.time.quarterNote = this.time.beat = bpms;
       this.time.halfNote = this.time.quarterNote*2;
       this.time.wholeNote = this.time.halfNote*2;
-      this.time.eighthNote = this.time.quarterNote / 2;
+      this.time.eighthNote = this.time.quarterNote/2;
       this.time.sixteenthNote = this.time.eighthNote/2;
       this.time.bar = parseInt(this.timeSignature.split('/')[0]) * this.time.quarterNote;
+      console.log(this.time);
     },
 
     getTime: function(bar,beat) {
@@ -112,8 +113,33 @@ define([
       clearInterval(this.ticker);
     },
 
-    addSongEvent: function(pos,func) {
+    addSongEvent: function(func,pos,rhythm) {
       this.songEvents.push({pos: pos, func: func});
+
+      rhythm = rhythm || false;
+      if (typeof rhythm === 'string') this.parseRhythm(pos, func,rhythm);
+    },
+    
+    parseRhythm: function(originalPos, originalFunc,rhythm) {
+      var arr = rhythm.split('');
+      
+      var addTime = 0;
+      for (var i=0;i<arr.length;i++) {
+        arr[i] = arr[i].toLowerCase();
+        switch(arr[i]) {
+          case 'w': addTime += this.time.wholeNote;
+            break;
+          case 'h': addTime += this.time.halfNote;
+            break;
+          case 'q': addTime += this.time.quarterNote;
+            break;
+          case 'e': addTime += this.time.eighthNote;
+            break;
+          case 's': addTime += this.time.sixteenthNote;
+            break;
+        }
+        this.addSongEvent(originalFunc,originalPos+addTime);
+      }
     },
 
     stop: function() {

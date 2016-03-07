@@ -6,6 +6,8 @@ define([
 
   function Song() {
     SongSequence.call(this);
+    this.colors = ['red','green','blue','purple','orange'];
+    this.colorIndex = 0;
   }
 
   Song.prototype = Object.create(SongSequence.prototype);
@@ -14,59 +16,19 @@ define([
   Song.prototype.init = function() {
     this.audioPath = this.rootPath + 'demosong/demosong.mp3';
     this.title = 'Spacy Three Beat';
-    this.bpm = 60;
-    this.timeSignature = '4/4';
+    this.bpm = 180;
+    this.timeSignature = '3/4';
     SongSequence.prototype.init.call(this);
   };
 
   Song.prototype.registerSongEvents = function() {
-    this.addSongEvent(this.getTime(1,1),function() {
-      document.body.style.backgroundColor = "red";
-    });
-
-    this.addSongEvent(this.getTime(1,3),function() {
-      document.body.style.backgroundColor = "purple";
-    });
-
-    this.addSongEvent(this.getTime(1,4),function() {
-      document.body.style.backgroundColor = "blue";
-    });
-
-    this.addSongEvent(this.getTime(2,1),function() {
-      document.body.style.backgroundColor = "green";
-    });
-
-    this.addSongEvent(this.getTime(2,3),function() {
-      document.body.style.backgroundColor = "orange";
-    });
-
-    this.addSongEvent(this.getTime(2,4),function() {
-      document.body.style.backgroundColor = "pink";
-    });
-
-    this.addSongEvent(this.getTime(3,1),function() {
-      document.body.style.backgroundColor = "red";
-    });
-
-    this.addSongEvent(this.getTime(3,3),function() {
-      document.body.style.backgroundColor = "purple";
-    });
-
-    this.addSongEvent(this.getTime(3,4),function() {
-      document.body.style.backgroundColor = "blue";
-    });
-
-    this.addSongEvent(this.getTime(4,1),function() {
-      document.body.style.backgroundColor = "green";
-    });
-
-    this.addSongEvent(this.getTime(4,3),function() {
-      document.body.style.backgroundColor = "orange";
-    });
-
-    this.addSongEvent(this.getTime(4,4),function() {
-      document.body.style.backgroundColor = "pink";
-    });
+    this.addSongEvent(this.toggleColors.bind(this),this.getTime(1,1),'qqqqeeqqqqqeeqqqqqeeqqqqqeeqqqqqeeqqhqhqhqhqqq');
+  };
+  
+  Song.prototype.toggleColors = function () {
+    document.body.style.backgroundColor = this.colors[this.colorIndex];
+    this.colorIndex++;
+    if (this.colorIndex > this.colors.length-1) this.colorIndex = 0;
   };
 
   if (typeof window['song-'+Song.title] === 'undefined') {
