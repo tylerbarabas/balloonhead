@@ -4,9 +4,7 @@ define([
 
   var MainController = {
     init: function() {
-      // console.log(demoSong.init);
       demoSong.init();
-      // demoSong.registerSongEvents();
     }
   };
 
