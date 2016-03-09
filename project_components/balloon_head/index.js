@@ -2,11 +2,15 @@ define([
   'lib/easeljs/lib/easeljs-0.8.2.min'
 ],function(){
 
-  var balloonHead = new createjs.Shape();
-  balloonHead.graphics.beginFill("DeepSkyBlue").drawCircle(0, 0, 50);
-  balloonHead.x = 100;
-  balloonHead.y = 100;
+  function BalloonHead() {
+    this.dom = document.createElement('DIV');
+    this.dom.className = 'balloon-head';
+  }
 
-  return balloonHead;
+  BalloonHead.prototype.init = function() {
+    document.body.appendChild(this.dom);
+  };
+
+  return BalloonHead;
 
 });

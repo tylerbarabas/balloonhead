@@ -1,4 +1,4 @@
 {
-  "0": ["toggleColors",{"bar": 1, "beat": 1},["q","q","q","q"]],
-  "1": ["toggleColors",4000,["e","e","e","e","e","e","e","e"]]
+  "0": ["showBalloonHead",{"bar": 1, "beat": 1}],
+  "1": ["toggleSize",{"bar":2,"beat":1},["b","b","q","q","q","b","b","q","q","q","b","b","q","q","q","b","b","q","q","q","b","b","q","q","q","b","b","q","q","q","b","b","q","q","q","b","b","q","q","q","b","b","q","q","q","b","b","q","q","q","b","b","q","q","q","b","b","q","q","q","b","b","q","q","q","b","b","q","q","q","b","b","q","q","q"]]
 }
