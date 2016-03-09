@@ -17,6 +17,7 @@ define([
 
     this.time = {};
     this.songEvents = [];
+    this.sequence = [];
 
     this.dom = document.createElement('DIV');
     this.cjs = false;
@@ -116,23 +117,37 @@ define([
     },
 
     addSongEvent: function(func,pos,rhythm) {
-      
+
       rhythm = rhythm || false;
       if (typeof rhythm === 'object') {
-        this.parseRhythm(pos, func,rhythm);  
+        this.parseRhythm(pos, func,rhythm);
         return;
       }
-      
+
       this.songEvents.push({pos: pos, func: func});
     },
-    
-    parseRhythm: function(originalPos, originalFunc, rhythm) {      
+
+    registerSongEvents: function() {
+      for (var i in this.sequence){
+        var func = this[this.sequence[i][0]].bind(this),
+            time = this.sequence[i][1],
+            rhythm = this.sequence[i][2];
+
+        if (typeof time == 'object') {
+          time = this.getTime(time.bar,time.beat);
+        }
+
+        this.addSongEvent(func,time,rhythm);
+      }
+    },
+
+    parseRhythm: function(originalPos, originalFunc, rhythm) {
       var addTime = originalPos;
-      for (var i=0;i<rhythm.length;i++) {        
-        
+      for (var i=0;i<rhythm.length;i++) {
+
         this.addSongEvent(originalFunc,addTime);
         var current = rhythm[i].toLowerCase().split('');
-        
+
         for (var j=0;j<current.length;j++) {
           switch(current[j]) {
             case 'b': addTime += this.time.bar;
@@ -153,8 +168,8 @@ define([
               break;
             case 'x': addTime += this.time.sixteenthNoteTriplet;
               break;
-          }  
-        }  
+          }
+        }
       }
     },
 

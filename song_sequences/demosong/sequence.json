@@ -1,3 +1,4 @@
 {
-  "0": ["toggleColors",1000,["q","q","q","q"]]
+  "0": ["toggleColors",{"bar": 1, "beat": 1},["q","q","q","q"]],
+  "1": ["toggleColors",4000,["e","e","e","e","e","e","e","e"]]
 }
