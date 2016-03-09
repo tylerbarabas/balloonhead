@@ -6,6 +6,7 @@ requirejs.config({
         project: '/project_components',
         songs: '/song_sequences',
         lib: '/lib',
+        text: 'lib/requiretext/text.min'
     }
 });
 

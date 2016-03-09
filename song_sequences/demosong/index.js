@@ -1,8 +1,9 @@
 define([
   'core/song_sequence/index',
-  'project/balloon_head/index',
-  'core/stage/index'
-],function(SongSequence,BalloonHead,Stage){
+  'text!songs/demosong/sequence.json'
+],function(SongSequence,sequence){
+  
+  sequence = JSON.parse(sequence);
 
   function Song() {
     SongSequence.call(this);
@@ -22,7 +23,13 @@ define([
   };
 
   Song.prototype.registerSongEvents = function() {
-    this.addSongEvent(this.toggleColors.bind(this),this.getTime(1,1),['q','q','q','b','q','q','q','b','q','q','q','b','q','q','q','b','q','q','q','b','q','q','q','b','q','q','q','b']);
+    console.log(sequence[0]);
+    
+    console.log(this[sequence[0][0]],sequence[0][1],sequence[0][2]);
+    
+    for (var i=0;i<sequence.length;i++){
+      this.addSongEvent(this[sequence[i][0]].bind(this),sequence[i][1],sequence[i][2]);      
+    }
   };
   
   Song.prototype.toggleColors = function () {
