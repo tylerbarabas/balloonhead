@@ -22,7 +22,7 @@ define([
   };
 
   Song.prototype.registerSongEvents = function() {
-    this.addSongEvent(this.toggleColors.bind(this),this.getTime(1,1),'qqqqeeqqqqqeeqqqqqeeqqqqqeeqqqqqeeqqhqhqhqhqqq');
+    this.addSongEvent(this.toggleColors.bind(this),this.getTime(1,1),['q','q','q','b','q','q','q','b','q','q','q','b','q','q','q','b','q','q','q','b','q','q','q','b','q','q','q','b']);
   };
   
   Song.prototype.toggleColors = function () {

@@ -62,8 +62,10 @@ define([
       this.time.wholeNote = this.time.halfNote*2;
       this.time.eighthNote = this.time.quarterNote/2;
       this.time.sixteenthNote = this.time.eighthNote/2;
+      this.time.thirtySecondNote = this.time.sixteenthNote/2;
+      this.time.eighthNoteTriplet = this.time.quarterNote/3;
+      this.time.sixteenthNoteTriplet = this.time.eighthNoteTriplet/2;
       this.time.bar = parseInt(this.timeSignature.split('/')[0]) * this.time.quarterNote;
-      console.log(this.time);
     },
 
     getTime: function(bar,beat) {
@@ -114,31 +116,45 @@ define([
     },
 
     addSongEvent: function(func,pos,rhythm) {
-      this.songEvents.push({pos: pos, func: func});
-
+      
       rhythm = rhythm || false;
-      if (typeof rhythm === 'string') this.parseRhythm(pos, func,rhythm);
+      if (typeof rhythm === 'object') {
+        this.parseRhythm(pos, func,rhythm);  
+        return;
+      }
+      
+      this.songEvents.push({pos: pos, func: func});
     },
     
-    parseRhythm: function(originalPos, originalFunc,rhythm) {
-      var arr = rhythm.split('');
-      
-      var addTime = 0;
-      for (var i=0;i<arr.length;i++) {
-        arr[i] = arr[i].toLowerCase();
-        switch(arr[i]) {
-          case 'w': addTime += this.time.wholeNote;
-            break;
-          case 'h': addTime += this.time.halfNote;
-            break;
-          case 'q': addTime += this.time.quarterNote;
-            break;
-          case 'e': addTime += this.time.eighthNote;
-            break;
-          case 's': addTime += this.time.sixteenthNote;
-            break;
-        }
-        this.addSongEvent(originalFunc,originalPos+addTime);
+    parseRhythm: function(originalPos, originalFunc, rhythm) {      
+      var addTime = originalPos;
+      for (var i=0;i<rhythm.length;i++) {        
+        
+        this.addSongEvent(originalFunc,addTime);
+        var current = rhythm[i].toLowerCase().split('');
+        
+        for (var j=0;j<current.length;j++) {
+          switch(current[j]) {
+            case 'b': addTime += this.time.bar;
+              break;
+            case 'w': addTime += this.time.wholeNote;
+              break;
+            case 'h': addTime += this.time.halfNote;
+              break;
+            case 'q': addTime += this.time.quarterNote;
+              break;
+            case 'e': addTime += this.time.eighthNote;
+              break;
+            case 's': addTime += this.time.sixteenthNote;
+              break;
+            case 't': addTime += this.time.thirtySecondNote;
+              break;
+            case 'z': addTime += this.time.eighthNoteTriplet;
+              break;
+            case 'x': addTime += this.time.sixteenthNoteTriplet;
+              break;
+          }  
+        }  
       }
     },
 
