@@ -1,21 +1,28 @@
 body {
-  background-image: url(/img/background.png);
-  background-size: auto 100%;
-  background-repeat: no-repeat;
+  background-color: #000000;
   overflow: hidden;
 }
 #content-stage {
   display: block;
   margin: 0 auto;
+  /*outline: thin solid #FFFFFF;*/
+  width: 890px;
+  height: 640px;
+  background-image: url(/img/background.png);
+  background-size: auto 100%;
+  box-shadow: inset 0px 0px 10px 10px #000000;
 }
 
 #audio-controls-container {
   display: block;
-  margin: 0 auto;
+  position: relative;
+  top: 18px;
+  left: 20px;
 }
 
 #audio-controls-container ul {
   list-style-type: none;
+  padding: 0;
 }
 #audio-controls-container ul li{
   display: inline-block;
@@ -23,9 +30,9 @@ body {
 
 .audio-controls {
   cursor: pointer;
-
-  font-size: 50px;
-  margin: 20px;
+  color: #FFFFFF;
+  font-size: 25px;
+  /*margin-top: 30px;*/
 }
 
 .audio-controls#btn-pause {
@@ -36,6 +43,12 @@ body {
   opacity: 0.5;
 }
 
+#audio-controls-container #loading {
+  font-size: 25px;
+  color: #FFFFFF;
+  display: none;
+}
+
 .balloon-head {
   background-image: url(project_components/balloon_head/img/balloonhead.png);
   background-size: 100% 100%;
@@ -44,11 +57,4 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-}
-
-#loading {
-  font-size: 50px;
-  margin: 20px;
-
-  display: none;
 }
