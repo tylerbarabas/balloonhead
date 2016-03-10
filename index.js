@@ -1,12 +1,20 @@
 define([
   'songs/demosong/index',
-],function(demoSong){
+  'core/stage/index'
+],function(demoSong,Stage){
 
-  var MainController = {
+  function MainController() {
+    
+  }
+
+  MainController.prototype = {
     init: function() {
+      Stage.init();
       demoSong.init();
     }
   };
+  
+  var mc = new MainController();
+  mc.init();
 
-  MainController.init();
 });

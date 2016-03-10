@@ -1,16 +1,23 @@
-define([
-  'lib/easeljs/lib/easeljs-0.8.2.min',
-  'lib/soundjs/lib/soundjs-0.6.2.min'
-],function() {
+define([],function() {
   "use strict";
+  
+  function Stage() {
+    this.dom = null;
+  }
 
-  var Stage = {
-    domElement: document.getElementById('content-stage'),
-    cjs: new createjs.Stage("content-stage"),
-    update: function() {
-      this.cjs.update();
+  Stage.prototype = {
+    init: function() {
+      this.dom = document.getElementById('content-stage');
+      window.addEventListener('resize',this.onResize.bind(this));
+    },
+    onResize: function() {
+      console.log('resize!');
     }
   };
 
-  return Stage;
+  if (typeof window.stage === 'undefined') {
+		window.stage = new Stage();
+	}
+
+	return window.stage;
 });
