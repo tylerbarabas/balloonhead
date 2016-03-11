@@ -3,10 +3,11 @@ body {
   overflow: hidden;
 }
 #content-stage {
-  display: block;
-  margin: 0 auto;
-  width: 890px;
-  height: 640px;
+  /*display: block;*/
+  /*position: absolute;*/
+  /*margin: 0 auto;*/
+  width: 900px;
+  height: 650px;
   background-image: url(/img/background.png);
   background-size: auto 100%;
   box-shadow: inset 0px 0px 10px 10px #000000;
