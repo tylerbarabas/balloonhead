@@ -29,7 +29,7 @@ define([],function() {
       var compensateLeft = ( window.innerWidth - this.dom.clientWidth * this.pageScale) / 8;
       
       move_x = (move_x / this.pageScale) - 15;
-      move_y = (move_y / this.pageScale) - 15;
+      move_y = (move_y / this.pageScale) - 7;
       
       this.dom.style.top = move_y + 'px';
       this.dom.style.left = move_x + 'px';
