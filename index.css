@@ -1,12 +1,11 @@
 body {
   background-color: #000000;
   overflow: hidden;
+  transform-origin: 0 0;
 }
 #content-stage {
-  /*display: block;*/
-  /*position: absolute;*/
-  /*margin: 0 auto;*/
-  width: 900px;
+  position: absolute;
+  width: 950px;
   height: 650px;
   background-image: url(/img/background.png);
   background-size: auto 100%;

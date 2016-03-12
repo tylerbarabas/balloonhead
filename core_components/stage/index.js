@@ -8,27 +8,29 @@ define([],function() {
   Stage.prototype = {
     init: function() {
       this.dom = document.getElementById('content-stage');
+      this.pageScale = 1;
+      this.resize();
       window.addEventListener('resize',this.resize.bind(this));
     },
     resize: function() {
       var div_w = this.dom.clientWidth, div_h = this.dom.clientHeight;
 
-      console.log(div_w,div_h);
-
       var scale_w = window.innerWidth / div_w;
       var scale_h = window.innerHeight / div_h;
 
-      var pageScale = Math.min(scale_w, scale_h) * 0.95;
-      document.body.style.webkitTransform = 'scale(' + pageScale + ')';
-      document.body.style.msTransform = 'scale(' + pageScale + ')';
-      document.body.style.transform = 'scale(' + pageScale + ')';
+      this.pageScale = Math.min(scale_w, scale_h) * 0.95;
+      document.body.style.webkitTransform = 'scale(' + this.pageScale + ')';
+      document.body.style.msTransform = 'scale(' + this.pageScale + ')';
+      document.body.style.transform = 'scale(' + this.pageScale + ')';
 
-      var move_x = ( window.innerWidth - this.dom.clientWidth * pageScale) / 2;
-      var move_y = ( window.innerHeight - this.dom.clientHeight * pageScale) / 2;
-      //
-      // move_x = move_x / pageScale;
-      // move_y = move_y / pageScale;
-      //
+      var move_x = ( window.innerWidth - this.dom.clientWidth * this.pageScale) / 2;
+      var move_y = ( window.innerHeight - this.dom.clientHeight * this.pageScale) / 2;
+      
+      var compensateLeft = ( window.innerWidth - this.dom.clientWidth * this.pageScale) / 8;
+      
+      move_x = (move_x / this.pageScale) - 15;
+      move_y = move_y / this.pageScale;
+      
       this.dom.style.top = move_y + 'px';
       this.dom.style.left = move_x + 'px';
     }
