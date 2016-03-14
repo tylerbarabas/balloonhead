@@ -19,7 +19,8 @@ define([
       this.playBtn.addEventListener('click',this.playBtnClick.bind(this));
 
       this.loadingIcon = document.getElementById('loading');
-      this.loading = false;
+      this.loading = true;
+      this.toggleLoadingIcon(true);
     },
     playBtnClick: function(dispatch) {
       if (this.loading) return;
