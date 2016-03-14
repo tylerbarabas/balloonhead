@@ -44,7 +44,8 @@ define([
     this.balloonHead.moveTo('0px',null);
   };
   Song.prototype.move2 = function() {
-    this.balloonHead.moveTo('500px','0px','2s');
+    this.balloonHead.setTransition('2s');
+    this.balloonHead.moveTo('500px','0px');
   };
   Song.prototype.rotate = function() {
     this.balloonHead.style('transform','rotate(360deg)');
