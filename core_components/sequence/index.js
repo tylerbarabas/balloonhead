@@ -17,7 +17,7 @@ define([
 
     this.time = {};
     this.songEvents = [];
-    this.sequence = [];
+    this.instructions = [];
 
     this.dom = document.createElement('DIV');
     this.cjs = false;
@@ -128,10 +128,10 @@ define([
     },
 
     registerSongEvents: function() {
-      for (var i in this.sequence){
-        var func = this[this.sequence[i][0]].bind(this),
-            time = this.sequence[i][1],
-            rhythm = this.sequence[i][2];
+      for (var i in this.instructions){
+        var func = this[this.instructions[i][0]].bind(this),
+            time = this.instructions[i][1],
+            rhythm = this.instructions[i][2];
 
         if (typeof time == 'object') {
           time = this.getTime(time.bar,time.beat);

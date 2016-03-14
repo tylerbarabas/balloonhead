@@ -1,14 +1,17 @@
 define([
-  'lib/easeljs/lib/easeljs-0.8.2.min'
-],function(){
+  'core_components/item/index.js'
+],function(StageItem){
 
   function BalloonHead() {
     this.dom = document.createElement('DIV');
     this.dom.className = 'balloon-head';
   }
 
+  BalloonHead.prototype = Object.create(StageItem.prototype);
+  BalloonHead.prototype.constructor = StageItem;
+
   BalloonHead.prototype.init = function() {
-    document.body.appendChild(this.dom);
+    StageItem.prototype.init.call(this);
   };
 
   return BalloonHead;

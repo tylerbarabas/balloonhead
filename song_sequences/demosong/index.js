@@ -1,15 +1,16 @@
 define([
-  'core/song_sequence/index',
-  'text!songs/demosong/sequence.json',
-  'project/balloon_head/index'
-],function(ParentClass,Sequence,BalloonHead){
+  'core/sequence/index',
+  'text!songs/demosong/instructions.json',
+  'project/balloon_head/index',
+  'core/stage/index'
+],function(Sequence,Instructions,BalloonHead,Stage){
 
   function Song() {
-    ParentClass.call(this);
+    Sequence.call(this);
   }
 
-  Song.prototype = Object.create(ParentClass.prototype);
-  Song.prototype.constructor = ParentClass;
+  Song.prototype = Object.create(Sequence.prototype);
+  Song.prototype.constructor = Sequence;
 
   Song.prototype.init = function() {
 
@@ -20,35 +21,37 @@ define([
 
     this.colors = ['red','green','blue','purple','orange'];
     this.colorIndex = 0;
-    this.sequence = JSON.parse(Sequence);
+    this.instructions = JSON.parse(Instructions);
 
-    this.grow = true;
+    this.stage = Stage;
 
-    ParentClass.prototype.init.call(this);
+    Sequence.prototype.init.call(this);
   };
 
   Song.prototype.showBalloonHead = function () {
     this.balloonHead = new BalloonHead();
 
-    this.balloonHead.dom.style.top = '250px';
-    this.balloonHead.dom.style.left = '500px';
+    this.balloonHead.style('top','250px');
+    this.balloonHead.style('left','500px');
+    this.balloonHead.style('opacity','0');
+    this.balloonHead.setTransition('all 500ms');
 
     this.balloonHead.init();
+    this.balloonHead.style('opacity',1);
   };
 
-  Song.prototype.toggleSize = function() {
-    if (this.grow) {
-      this.balloonHead.dom.style.top = '0';
-      this.balloonHead.dom.style.left = '500px';
-      this.balloonHead.dom.style.height = '1308px';
-      this.balloonHead.dom.style.width = '800px';
-    } else {
-      this.balloonHead.dom.style.top = '250px';
-      this.balloonHead.dom.style.left = '500px';
-      this.balloonHead.dom.style.height = '327px';
-      this.balloonHead.dom.style.width = '200px';
-    }
-    this.grow = !this.grow;
+  Song.prototype.move1 = function() {
+    this.balloonHead.moveTo('0px',null);
+  };
+  Song.prototype.move2 = function() {
+    this.balloonHead.moveTo('500px','0px','2s');
+  };
+  Song.prototype.rotate = function() {
+    this.balloonHead.style('transform','rotate(360deg)');
+  };
+  Song.prototype.rollBackground = function() {
+    this.stage.setTransition('2s');
+    this.stage.style('background-position-x','-890px');
   };
 
   if (typeof window['song-'+Song.title] === 'undefined') {

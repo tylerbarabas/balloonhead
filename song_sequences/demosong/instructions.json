@@ -1,0 +1,7 @@
+{
+  "0":["showBalloonHead",{"bar":1,"beat":1}],
+  "1":["move1",{"bar":2,"beat":1}],
+  "2":["move2",{"bar":3,"beat":1}],
+  "3":["rotate",{"bar":4,"beat":1}],
+  "4":["rollBackground",{"bar":5,"beat":1}]
+}

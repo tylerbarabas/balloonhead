@@ -25,14 +25,22 @@ define([],function() {
 
       var move_x = ( window.innerWidth - this.dom.clientWidth * this.pageScale) / 2;
       var move_y = ( window.innerHeight - this.dom.clientHeight * this.pageScale) / 2;
-      
+
       var compensateLeft = ( window.innerWidth - this.dom.clientWidth * this.pageScale) / 8;
-      
+
       move_x = (move_x / this.pageScale) - 15;
       move_y = (move_y / this.pageScale) - 7;
-      
+
       this.dom.style.top = move_y + 'px';
       this.dom.style.left = move_x + 'px';
+    },
+    setTransition: function(transition) {
+      this.dom.style.transition = transition;
+      this.dom.style.WebkitTransition = transition;
+      this.dom.style.MozTransition = transition;
+    },
+    style: function (attr,val) {
+      this.dom.style[attr] = val;
     }
   };
 
