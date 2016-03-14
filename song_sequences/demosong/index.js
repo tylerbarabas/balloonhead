@@ -51,7 +51,7 @@ define([
   };
   Song.prototype.rollBackground = function() {
     this.stage.setTransition('2s');
-    this.stage.style('background-position-x','-890px');
+    this.stage.style('background-position','-890px 0');
   };
 
   if (typeof window['song-'+Song.title] === 'undefined') {
