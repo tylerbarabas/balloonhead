@@ -53,7 +53,7 @@ define([
     this.iAmYou.setTransition('1s');
     setTimeout(function(){
       this.iAmYou.dom.style.opacity = 1;
-    }.bind(this),2000);
+    }.bind(this),500);
 
     this.youAreMe = new ItemText('You are me.');
     this.youAreMe.init();
@@ -61,7 +61,7 @@ define([
     this.youAreMe.setTransition('1s');
     setTimeout(function(){
       this.youAreMe.dom.style.opacity = 1;
-    }.bind(this),4000);
+    }.bind(this),2000);
 
     this.letsBegin = new ItemText('Let\'s begin.');
     this.letsBegin.init();
