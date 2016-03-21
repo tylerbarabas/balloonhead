@@ -3,8 +3,9 @@ define([
   'text!songs/intro/instructions.json',
   'project/balloon_head/index',
   'core/stage/index',
-  'project/backlit_door/index'
-],function(Sequence,Instructions,BalloonHead,Stage,BacklitDoor){
+  'project/backlit_door/index',
+  'project_components/audio_controls/index.js'
+],function(Sequence,Instructions,BalloonHead,Stage,BacklitDoor,AudioControls){
 
   function Song() {
     Sequence.call(this);
@@ -25,6 +26,7 @@ define([
     this.instructions = JSON.parse(Instructions);
 
     this.stage = Stage;
+    this.audioControls = AudioControls;
 
     this.backlitDoor = new BacklitDoor();
     this.backlitDoor.style.top = '0px';
@@ -59,6 +61,16 @@ define([
   Song.prototype.rollBackground = function() {
     this.stage.setTransition('2s');
     this.stage.style('background-position','-837px 0');
+  };
+
+  Song.prototype.audioControlsToCorner = function() {
+    this.audioControls.setTransition('1s');
+    this.audioControls.setTransition('1s',false,this.audioControls.playBtn);
+    this.audioControls.setTransition('1s',false,this.audioControls.pauseBtn);
+
+    this.audioControls.dom.className = 'top-left';
+    this.audioControls.pauseBtn.className = this.audioControls.pauseBtn.baseClass + ' top-left';
+    this.audioControls.playBtn.className = this.audioControls.playBtn.baseClass + ' top-left';
   };
 
   Song.prototype.openDoor = function() {

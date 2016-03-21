@@ -5,7 +5,7 @@ define([
   'lib/easeljs/lib/easeljs-0.8.2.min',
   'lib/soundjs/lib/soundjs-0.6.2.min'
 ],function(AudioPlayer,AudioControls){
-  
+
   function SongSequence () {
     this.title = null;
     this.audioPath = null;
@@ -34,7 +34,7 @@ define([
       AudioControls.addEvent('play-btn', this.play.bind(this));
       AudioControls.addEvent('pause-btn', this.pause.bind(this));
     },
-    onFileLoad: function(evt) {            
+    onFileLoad: function(evt) {
       if (evt.params.title === this.title) {
         this.loaded = true;
         AudioControls.loading = false;

@@ -9,13 +9,16 @@ define([
   AudioControls.prototype = {
 
     init: function() {
-      this.dom = document.createElement('DIV');
+      this.dom = document.getElementById('audio-controls-container');
 
       this.pauseBtn = document.getElementById('btn-pause');
       this.pauseBtn.addEventListener('click',this.pauseBtnClick.bind(this));
+      this.pauseBtn.baseClass = 'fa fa-pause audio-controls';
+
 
       this.playBtn = document.getElementById('btn-play');
       this.playBtn.addEventListener('click',this.playBtnClick.bind(this));
+      this.playBtn.baseClass = 'fa fa-play audio-controls';
 
       this.loadingIcon = document.getElementById('loading');
       this.loading = true;
@@ -57,6 +60,27 @@ define([
       evt.initEvent(evtName,true,true);
 
       this.dom.dispatchEvent(evt);
+    },
+    setTransition: function(transition,setChildren,element) {
+
+      setChildren = setChildren || false;
+      element = element || this.dom;
+
+      element.style.transition = transition;
+      element.style.WebkitTransition = transition;
+      element.style.MozTransition = transition;
+
+      if (!setChildren) return;
+
+      var children = element.childNodes;
+      for (var i=0;i<children.length;i++) {
+        children[i].style.transition = transition;
+        children[i].style.WebkitTransition = transition;
+        children[i].style.MozTransition = transition;
+
+        if (children[i].childNodes.length > 0) this.setTransition(transition,true,children[i]);
+      }
+
     }
   };
 
