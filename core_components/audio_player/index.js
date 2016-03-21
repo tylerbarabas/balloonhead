@@ -12,7 +12,7 @@ define([
       title: null
     };
   }
-  
+
   AudioPlayer.prototype = {
     loadFile: function(audioPath,title) {
       createjs.Sound.registerSound(audioPath, title);
@@ -35,6 +35,7 @@ define([
     },
     pause: function() {
       this.cjs.setPaused(true);
+      this.playing = false;
     },
     stop: function(title) {
       createjs.Sound.stop(title);
@@ -58,7 +59,7 @@ define([
       this.dom.dispatchEvent(evt);
     }
   };
-  
+
   if (typeof window['audio-player'] === 'undefined') {
     window['audio-player'] = new AudioPlayer();
   }

@@ -7,7 +7,7 @@ body {
   position: absolute;
   width: 1200px;
   height: 650px;
-  background-image: url(/img/background.png);
+  background-color: #000000;
   background-size: auto 100%;
   box-shadow: inset 0px 0px 10px 10px #000000;
   outline: 2px solid #000000;
