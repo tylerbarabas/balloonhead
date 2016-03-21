@@ -1,6 +1,6 @@
 define([
   'core/sequence/index',
-  'text!songs/demosong/instructions.json',
+  'text!songs/intro/instructions.json',
   'project/balloon_head/index',
   'core/stage/index'
 ],function(Sequence,Instructions,BalloonHead,Stage){
@@ -14,7 +14,7 @@ define([
 
   Song.prototype.init = function() {
 
-    this.audioPath = this.rootPath + 'demosong/demosong.mp3';
+    this.audioPath = this.rootPath + 'intro/demosong.mp3';
     this.title = 'Spacy Three Beat';
     this.bpm = 180;
     this.timeSignature = '3/4';

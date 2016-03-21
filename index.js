@@ -1,21 +1,21 @@
 define([
-  'songs/demosong/index',
+  'songs/intro/index',
   'core/stage/index',
   'project/audio_controls/index'
-],function(demoSong,Stage,AudioControls){
+],function(intro,Stage,AudioControls){
 
   function MainController() {
-    
+
   }
 
   MainController.prototype = {
     init: function() {
       Stage.init();
-      AudioControls.init();      
-      demoSong.init();
+      AudioControls.init();
+      intro.init();
     }
   };
-  
+
   var mc = new MainController();
   mc.init();
 

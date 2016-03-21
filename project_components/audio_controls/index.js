@@ -1,7 +1,6 @@
 define([
-  'songs/demosong/index',
   'lib/tweenjs/lib/tweenjs-0.6.2.min'
-],function(demoSong){
+],function(){
 
   function AudioControls () {
     this.playing = false;
