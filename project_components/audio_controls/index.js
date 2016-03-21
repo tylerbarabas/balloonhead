@@ -15,14 +15,19 @@ define([
       this.pauseBtn.addEventListener('click',this.pauseBtnClick.bind(this));
       this.pauseBtn.baseClass = 'fa fa-pause audio-controls';
 
-
       this.playBtn = document.getElementById('btn-play');
       this.playBtn.addEventListener('click',this.playBtnClick.bind(this));
       this.playBtn.baseClass = 'fa fa-play audio-controls';
 
       this.loadingIcon = document.getElementById('loading');
       this.loading = true;
+      this.setTransition('1s',false,this.loadingIcon);
       this.toggleLoadingIcon(true);
+
+      this.setTransition('1s');
+    },
+    show: function() {
+      this.dom.style.opacity = 1;
     },
     playBtnClick: function(dispatch) {
       if (this.loading) return;
@@ -45,11 +50,9 @@ define([
     },
     toggleLoadingIcon: function(loading) {
       if (loading) {
-        this.loadingIcon.style.display = 'inline-block';
-        this.playBtn.style.opacity = 0.5;
+        this.loadingIcon.style.display = 'block';
       } else {
         this.loadingIcon.style.display = 'none';
-        this.playBtn.style.opacity = 1;
       }
     },
     addEvent: function(evtName,func) {

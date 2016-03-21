@@ -1,5 +1,5 @@
 define([
-  'core_components/item/index.js'
+  'core/item/index'
 ],function(Item){
 
   function BacklitDoor() {

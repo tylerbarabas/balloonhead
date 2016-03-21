@@ -8,7 +8,7 @@ define([],function() {
   Stage.prototype = {
     init: function() {
       this.dom = document.getElementById('content-stage');
-      this.blackOverlay = document.getElementById('black-overlay');
+      this.overlay = document.getElementById('overlay');
       this.pageScale = 1;
 
       setTimeout(function(){
@@ -63,8 +63,8 @@ define([],function() {
     style: function (attr,val) {
       this.dom.style[attr] = val;
     },
-    showBlackOverlay: function() {
-      this.blackOverlay.style.opacity = 0;
+    showOverlay: function() {
+      this.overlay.style.opacity = 0;
     }
   };
 
