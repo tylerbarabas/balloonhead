@@ -10,9 +10,12 @@ define([],function() {
       this.dom = document.getElementById('content-stage');
       this.blackOverlay = document.getElementById('black-overlay');
       this.pageScale = 1;
-      this.resize();
-      this.dom.style.visibility = 'visible';
-      window.addEventListener('resize',this.resize.bind(this));
+
+      setTimeout(function(){
+        this.resize();
+        this.dom.style.visibility = 'visible';
+        window.addEventListener('resize',this.resize.bind(this));
+      }.bind(this),25);
     },
     resize: function() {
       var div_w = this.dom.clientWidth, div_h = this.dom.clientHeight;
