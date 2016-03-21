@@ -8,8 +8,10 @@ define([],function() {
   Stage.prototype = {
     init: function() {
       this.dom = document.getElementById('content-stage');
+      this.blackOverlay = document.getElementById('black-overlay');
       this.pageScale = 1;
       this.resize();
+      this.dom.style.visibility = 'visible';
       window.addEventListener('resize',this.resize.bind(this));
     },
     resize: function() {
@@ -34,13 +36,32 @@ define([],function() {
       this.dom.style.top = move_y + 'px';
       this.dom.style.left = move_x + 'px';
     },
-    setTransition: function(transition) {
-      this.dom.style.transition = transition;
-      this.dom.style.WebkitTransition = transition;
-      this.dom.style.MozTransition = transition;
+    setTransition: function(transition,setChildren,element) {
+
+      setChildren = setChildren || false;
+      element = element || this.dom;
+
+      element.style.transition = transition;
+      element.style.WebkitTransition = transition;
+      element.style.MozTransition = transition;
+
+      if (!setChildren) return;
+
+      var children = element.childNodes;
+      for (var i=0;i<children.length;i++) {
+        children[i].style.transition = transition;
+        children[i].style.WebkitTransition = transition;
+        children[i].style.MozTransition = transition;
+
+        if (children[i].childNodes.length > 0) this.setTransition(transition,true,children[i]);
+      }
+
     },
     style: function (attr,val) {
       this.dom.style[attr] = val;
+    },
+    showBlackOverlay: function() {
+      this.blackOverlay.style.opacity = 0;
     }
   };
 

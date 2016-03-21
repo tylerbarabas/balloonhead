@@ -2,11 +2,11 @@ define([
   'core/stage/index'
 ],function(Stage){
 
-  function StageItem() {
+  function Item() {
     this.dom = null;
   }
 
-  StageItem.prototype = {
+  Item.prototype = {
     init: function() {
       Stage.dom.appendChild(this.dom);
     },
@@ -17,13 +17,29 @@ define([
       if (typeof left === 'string') this.dom.style.left = left;
       if (typeof top === 'string') this.dom.style.top = top;
     },
-    setTransition: function(transition) {
-      this.dom.style.transition = transition;
-      this.dom.style.WebkitTransition = transition;
-      this.dom.style.MozTransition = transition;
+    setTransition: function(transition,setChildren,element) {
+
+      setChildren = setChildren || false;
+      element = element || this.dom;
+
+      element.style.transition = transition;
+      element.style.WebkitTransition = transition;
+      element.style.MozTransition = transition;
+
+      if (!setChildren) return;
+
+      var children = element.childNodes;
+      for (var i=0;i<children.length;i++) {
+        children[i].style.transition = transition;
+        children[i].style.WebkitTransition = transition;
+        children[i].style.MozTransition = transition;
+
+        if (children[i].childNodes.length > 0) this.setTransition(transition,true,children[i]);
+      }
+
     }
   };
 
-  return StageItem;
+  return Item;
 
 });

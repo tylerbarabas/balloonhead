@@ -2,8 +2,9 @@ define([
   'core/sequence/index',
   'text!songs/intro/instructions.json',
   'project/balloon_head/index',
-  'core/stage/index'
-],function(Sequence,Instructions,BalloonHead,Stage){
+  'core/stage/index',
+  'project/backlit_door/index'
+],function(Sequence,Instructions,BalloonHead,Stage,BacklitDoor){
 
   function Song() {
     Sequence.call(this);
@@ -24,6 +25,11 @@ define([
     this.instructions = JSON.parse(Instructions);
 
     this.stage = Stage;
+
+    this.backlitDoor = new BacklitDoor();
+    this.backlitDoor.style.top = '0px';
+    this.backlitDoor.style.left = '0px';
+    this.backlitDoor.init();
 
     Sequence.prototype.init.call(this);
   };
@@ -53,6 +59,12 @@ define([
   Song.prototype.rollBackground = function() {
     this.stage.setTransition('2s');
     this.stage.style('background-position','-837px 0');
+  };
+
+  Song.prototype.openDoor = function() {
+    this.stage.setTransition('5s',false,this.stage.blackOverlay);
+    this.backlitDoor.open();
+    this.stage.blackOverlay.style.opacity = 0;
   };
 
   if (typeof window['song-'+Song.title] === 'undefined') {

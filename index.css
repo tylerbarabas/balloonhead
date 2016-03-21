@@ -7,17 +7,20 @@ body {
   position: absolute;
   width: 1200px;
   height: 650px;
-  background-color: #000000;
+  background-image: url(/core_components/stage/img/greybrick.jpg);
   background-size: auto 100%;
   box-shadow: inset 0px 0px 10px 10px #000000;
   outline: 2px solid #000000;
+
+  visibility: hidden;
 }
 
 #audio-controls-container {
   display: block;
   position: relative;
-  top: 18px;
-  left: 20px;
+  top: 300px;
+  left: 600px;
+  z-index: 9999;
 }
 
 #audio-controls-container ul {
@@ -31,7 +34,7 @@ body {
 .audio-controls {
   cursor: pointer;
   color: #FFFFFF;
-  font-size: 25px;
+  font-size: 125px;
 }
 
 .audio-controls#btn-pause {
@@ -56,4 +59,47 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.backlit-door {
+  height: 300px;
+  width: 100px;
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 260px;
+  left: 900px;
+  perspective: 1000px;
+  /*z-index: 0;*/
+}
+
+.backlit-door.open {
+  box-shadow: 0px 0px 60px 20px #FFFFFF;
+}
+.inner-door {
+  background-color: #4d2800;
+  height: 100%;
+  transform: rotateY(0deg);
+  transform-origin: 0% 0%;
+}
+
+.door-knob {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 50%;
+  left: 70%;
+  border-radius: 10px;
+  background-color: #4d4d00;
+}
+
+.black-overlay {
+  height: 100%;
+  width: 100%;
+  background-color: #000000;
+  opacity: 0.9;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
