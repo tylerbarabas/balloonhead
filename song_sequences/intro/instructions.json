@@ -1,4 +1,7 @@
 {
   "0":["audioControlsToCorner",{"bar":1,"beat":1}],
-  "1":["openDoor",{"bar":2,"beat":1}]
+  "1":["openDoor",{"bar":2,"beat":1}],
+  "2":["walkIn",{"bar":5,"beat":1}],
+  "3":["closeDoor",{"bar":6,"beat":1}],
+  "4":["walkOut",{"bar":7,"beat":1}]
 }

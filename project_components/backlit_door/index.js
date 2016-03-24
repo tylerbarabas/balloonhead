@@ -23,9 +23,13 @@ define([
   };
 
   BacklitDoor.prototype.open = function() {
-    this.setTransition('2s',true);
     this.innerDoor.style.transform = 'rotateY(90deg)';
     this.dom.className = this.dom.className + ' open';
+  };
+
+  BacklitDoor.prototype.close = function() {
+    this.innerDoor.style.transform = 'rotateY(0deg)';
+    this.dom.className = this.dom.className.split(' open')[0];
   };
 
   return BacklitDoor;
