@@ -6,7 +6,9 @@ requirejs.config({
         project: '/project_components',
         songs: '/song_sequences',
         lib: '/lib',
-        text: 'lib/requiretext/text.min'
+
+        text: 'lib/requiretext/text.min',
+        three: 'lib/three.js/build/three'
     }
 });
 
@@ -14,7 +16,8 @@ requirejs.config({
 requirejs([
   'lib/tweenjs/lib/tweenjs-0.6.2.min',
   'lib/easeljs/lib/easeljs-0.8.2.min',
-  'lib/soundjs/lib/soundjs-0.6.2.min'
+  'lib/soundjs/lib/soundjs-0.6.2.min',
+  'lib/three.js/build/three'
 ]);
 
 //Load main controller

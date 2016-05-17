@@ -29,16 +29,16 @@ define([
     init: function() {
       AudioPlayer.addEvent('songLoaded',this.onFileLoad.bind(this));
       AudioPlayer.loadFile(this.audioPath,this.title);
-      AudioControls.loading = true;
-      AudioControls.toggleLoadingIcon(true);
-      AudioControls.addEvent('play-btn', this.play.bind(this));
-      AudioControls.addEvent('pause-btn', this.pause.bind(this));
+      // AudioControls.loading = true;
+      // AudioControls.toggleLoadingIcon(true);
+      // AudioControls.addEvent('play-btn', this.play.bind(this));
+      // AudioControls.addEvent('pause-btn', this.pause.bind(this));
     },
     onFileLoad: function(evt) {
       if (evt.params.title === this.title) {
         this.loaded = true;
-        AudioControls.loading = false;
-        AudioControls.toggleLoadingIcon(false);
+        // AudioControls.loading = false;
+        // AudioControls.toggleLoadingIcon(false);
         this.calculateSubdivisions();
         this.registerSongEvents();
       } else {
@@ -64,12 +64,12 @@ define([
       this.ticker = setInterval(this.tick.bind(this),10);
       AudioPlayer.play(this.title);
       this.playing = true;
-      AudioControls.togglePlayPauseBtn(true);
+      // AudioControls.togglePlayPauseBtn(true);
     },
     pause: function() {
       AudioPlayer.pause();
       this.playing = false;
-      AudioControls.togglePlayPauseBtn(false);
+      // AudioControls.togglePlayPauseBtn(false);
       this.stopTicker();
     },
     tick: function() {

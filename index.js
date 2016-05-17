@@ -1,8 +1,8 @@
 define([
   'songs/intro/index',
-  'core/stage/index',
-  'project/audio_controls/index'
-],function(intro,Stage,AudioControls){
+  'core/three_stage/index',
+  'core/stage/index'
+],function(intro,ThreeStage,Stage){
 
   function MainController() {
 
@@ -10,8 +10,8 @@ define([
 
   MainController.prototype = {
     init: function() {
-      Stage.init();
-      AudioControls.init();
+      // Stage.init();
+      ThreeStage.init();
       intro.init();
     }
   };
