@@ -33,6 +33,7 @@ define([
       AudioControls.toggleLoadingIcon(true);
       AudioControls.addEvent('play-btn', this.play.bind(this));
       AudioControls.addEvent('pause-btn', this.pause.bind(this));
+      document.body.addEventListener('keydown', AudioControls.spacebar.bind(AudioControls));
     },
     onFileLoad: function(evt) {
       if (evt.params.title === this.title) {

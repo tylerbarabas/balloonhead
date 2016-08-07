@@ -1,8 +1,7 @@
 define([
-  'songs/mouth/index',
-  'project/audio_controls/index',
+  'songs/amazing_experience/index',
   'core/stage/index'
-],function(Mouth,AudioControls,Stage){
+],function(AmazingExperience,Stage){
 
   function MainController() {
 
@@ -11,8 +10,7 @@ define([
   MainController.prototype = {
     init: function() {
       Stage.init();
-      AudioControls.init();
-      Mouth.init();
+      AmazingExperience.init();
     }
   };
 

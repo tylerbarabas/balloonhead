@@ -1,47 +1,45 @@
 define([
   'core/sequence/index',
-  'text!songs/mouth/instructions.json',
-  'project/balloon_head/index',
+  'text!songs/amazing_experience/instructions.json',
   'core/stage/index',
-  'project/backlit_door/index',
   'project/audio_controls/index',
-  'project/item_text/index'
-],function(Sequence,Instructions,BalloonHead,Stage,BacklitDoor,AudioControls,ItemText){
+  'project/item_text/index',
+  'project/mouth/index'
+],function(Sequence,Instructions,Stage,AudioControls,ItemText,Mouth){
 
-  function Song() {
+  function SongSequence() {
     Sequence.call(this);
   }
 
-  Song.prototype = Object.create(Sequence.prototype);
-  Song.prototype.constructor = Sequence;
+  SongSequence.prototype = Object.create(Sequence.prototype);
+  SongSequence.prototype.constructor = Sequence;
 
-  Song.prototype.init = function() {
+  SongSequence.prototype.init = function() {
 
-    this.audioPath = this.rootPath + 'mouth/amazingexperience.mp3';
+    this.audioPath = this.rootPath + 'amazing_experience/snd/amazing_experience.mp3';
     this.title = 'amazing_experience';
-    this.bpm = 180;
-    this.timeSignature = '3/4';
+    this.bpm = 105;
+    this.timeSignature = '4/4';
 
-    this.colors = ['red','green','blue','purple','orange'];
-    this.colorIndex = 0;
     this.instructions = JSON.parse(Instructions);
 
     this.stage = Stage;
     this.audioControls = AudioControls;
+    this.audioControls.init();
 
     this.showOpeningText();
 
     Sequence.prototype.init.call(this);
   };
 
-  Song.prototype.onFileLoad = function(evt) {
+  SongSequence.prototype.onFileLoad = function(evt) {
 
     this.showLetsBegin();
 
     Sequence.prototype.onFileLoad.call(this,evt);
   };
 
-  Song.prototype.showOpeningText = function() {
+  SongSequence.prototype.showOpeningText = function() {
     this.iAmYou = new ItemText('Get ready for an');
     this.iAmYou.init();
     this.iAmYou.dom.className = 'i-am-you-text-container';
@@ -64,19 +62,19 @@ define([
     this.letsBegin.setTransition('1s');
   };
 
-  Song.prototype.hideOpeningText = function() {
+  SongSequence.prototype.hideOpeningText = function() {
     this.iAmYou.dom.style.opacity = 0;
     this.youAreMe.dom.style.opacity = 0;
     this.letsBegin.dom.style.opacity = 0;
   };
 
-  Song.prototype.showLetsBegin = function() {
+  SongSequence.prototype.showLetsBegin = function() {
 
     this.letsBegin.dom.style.opacity = 1;
     AudioControls.show();
   };
 
-  Song.prototype.audioControlsToCorner = function() {
+  SongSequence.prototype.audioControlsToCorner = function() {
     this.audioControls.setTransition('1s');
     this.audioControls.setTransition('1s',false,this.audioControls.playBtn);
     this.audioControls.setTransition('1s',false,this.audioControls.pauseBtn);
@@ -85,13 +83,19 @@ define([
 
     this.audioControls.dom.className = 'top-left';
     this.audioControls.pauseBtn.className = this.audioControls.pauseBtn.baseClass + ' top-left';
-    this.audioControls.playBtn.className = this.audioControls.playBtn.baseClass + ' top-left';
+    this.audioControls.playBtn.className =  this.audioControls.playBtn.baseClass + ' top-left';
   };
 
-  if (typeof window['song-'+Song.title] === 'undefined') {
-		window['song-'+Song.title] = new Song();
+  SongSequence.prototype.showMouth = function() {
+
+      this.mouth = new Mouth();
+
+  };
+
+  if (typeof window['song-'+SongSequence.title] === 'undefined') {
+		window['song-'+SongSequence.title] = new SongSequence();
 	}
 
-	return window['song-'+Song.title];
+	return window['song-'+SongSequence.title];
 
 });

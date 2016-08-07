@@ -29,15 +29,25 @@ define([
     show: function() {
       this.dom.style.opacity = 1;
     },
-    playBtnClick: function(dispatch) {
+    playBtnClick: function(evt) {
       if (this.loading) return;
 
+      this.playing = true;
       this.togglePlayPauseBtn(true);
       this.dispatchEvent('play-btn');
     },
-    pauseBtnClick: function(dispatch) {
+    pauseBtnClick: function(evt) {
+      this.playing = false;
       this.togglePlayPauseBtn(false);
       this.dispatchEvent('pause-btn');
+    },
+    spacebar: function(evt) {
+      if (evt.keyCode !== 32) return;
+      if (this.playing) {
+        this.pauseBtnClick();
+      } else {
+        this.playBtnClick();
+      }
     },
     togglePlayPauseBtn: function (playing) {
       if (playing) {
