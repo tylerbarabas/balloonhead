@@ -30,7 +30,7 @@ define([
     this.mouth = new Mouth();
     this.mouth.init();
     this.mouth.style('left','40%');
-    // this.mouth.setTransition('100ms');
+    this.mouth.setTransition('500ms');
 
     this.showOpeningText();
 
