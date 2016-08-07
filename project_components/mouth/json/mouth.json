@@ -9,12 +9,12 @@
     "ramble": {
         "next": true,
         "frames": [0,1,2,3,4,5,6,7],
-        "speed": 1
+        "speed": 0.5
     },
     "twitch": {
       "next": true,
       "frames": [5,6],
-      "speed": 1
+      "speed": 0.5
     }
 	},
 	"images": ["/project_components/mouth/img/mouth-strip-med.png"]

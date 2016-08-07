@@ -96,18 +96,21 @@ define([
       this.mouth.changeSprite('idle');
       this.mouthMove();
       this.colorChange();
+      this.mouthRotate();
   };
 
   SongSequence.prototype.mouthTwitch = function() {
       this.mouth.changeSprite('twitch');
       this.mouthMove();
       this.colorChange();
+      this.mouthRotate();
   };
 
   SongSequence.prototype.mouthRamble = function(){
       this.mouth.changeSprite('ramble');
       this.mouthMove();
       this.colorChange();
+      this.mouthRotate();
   };
 
   SongSequence.prototype.colorChange = function(){
@@ -121,6 +124,13 @@ define([
         rand2 = Math.floor(Math.random()*(yRange.high-yRange.low+1)+yRange.low);
 
     this.mouth.moveTo(rand1+'%',rand2+'%');
+  };
+
+  SongSequence.prototype.mouthRotate = function() {
+    var range = {low: 0, high: 360},
+        rand = Math.floor(Math.random()*(range.high-range.low+1)+range.low);
+
+    this.mouth.style('transform','rotate('+rand+'deg)');
   };
 
   if (typeof window['song-'+SongSequence.title] === 'undefined') {
