@@ -64,6 +64,9 @@ define([],function() {
       this.dom.style[attr] = val;
     },
     showOverlay: function() {
+      this.overlay.style.opacity = 1;
+    },
+    hideOverlay: function(){
       this.overlay.style.opacity = 0;
     }
   };

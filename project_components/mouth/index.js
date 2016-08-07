@@ -1,17 +1,23 @@
 define([
-  'core/sprite_sheet/index'
-],function(SpriteSheet){
+  'core/sprite_sheet/index',
+  'text!project/mouth/json/mouth.json'
+],function(SpriteSheet,MouthJson){
 
   function Mouth() {
-    console.log('Mouth constructor');
+    this.json = JSON.parse(MouthJson);
+    SpriteSheet.call(this);
   }
 
   Mouth.prototype = Object.create(SpriteSheet.prototype);
   Mouth.prototype.constructor = SpriteSheet;
 
   Mouth.prototype.init = function() {
+    this.dom.id = 'mouth';
+    this.style('height','500px');
+    this.style('position','absolute');
+    this.style('left','40%');
+
     SpriteSheet.prototype.init.call(this);
-    console.log('Mouth Init!',createjs);
   };
 
   return Mouth;

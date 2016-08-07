@@ -14,6 +14,9 @@ define([
       this.dom.style[attr] = val;
     },
     moveTo: function(left, top) {
+      if (typeof left === 'number') left += 'px';
+      if (typeof top === 'number') top += 'px';
+
       if (typeof left === 'string') this.dom.style.left = left;
       if (typeof top === 'string') this.dom.style.top = top;
     },

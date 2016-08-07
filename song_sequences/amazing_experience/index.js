@@ -27,6 +27,11 @@ define([
     this.audioControls = AudioControls;
     this.audioControls.init();
 
+    this.mouth = new Mouth();
+    this.mouth.init();
+    this.mouth.style('left','40%');
+    this.mouth.setTransition('500ms');
+
     this.showOpeningText();
 
     Sequence.prototype.init.call(this);
@@ -80,16 +85,42 @@ define([
     this.audioControls.setTransition('1s',false,this.audioControls.pauseBtn);
 
     this.hideOpeningText();
+    this.stage.hideOverlay();
 
     this.audioControls.dom.className = 'top-left';
     this.audioControls.pauseBtn.className = this.audioControls.pauseBtn.baseClass + ' top-left';
     this.audioControls.playBtn.className =  this.audioControls.playBtn.baseClass + ' top-left';
   };
 
-  SongSequence.prototype.showMouth = function() {
+  SongSequence.prototype.mouthStill = function() {
+      this.mouth.changeSprite('idle');
+      this.mouthMove();
+      this.colorChange();
+  };
 
-      this.mouth = new Mouth();
+  SongSequence.prototype.mouthTwitch = function() {
+      this.mouth.changeSprite('twitch');
+      this.mouthMove();
+      this.colorChange();
+  };
 
+  SongSequence.prototype.mouthRamble = function(){
+      this.mouth.changeSprite('ramble');
+      this.mouthMove();
+      this.colorChange();
+  };
+
+  SongSequence.prototype.colorChange = function(){
+    document.body.style.backgroundColor = '#'+Math.floor(Math.random()*16777215).toString(16);
+  };
+
+  SongSequence.prototype.mouthMove = function(){
+    var xRange = {low: 0, high: 70},
+        rand1 = Math.floor(Math.random()*(xRange.high-xRange.low+1)+xRange.low),
+        yRange = {low: 0, high: 40},
+        rand2 = Math.floor(Math.random()*(yRange.high-yRange.low+1)+yRange.low);
+
+    this.mouth.moveTo(rand1+'%',rand2+'%');
   };
 
   if (typeof window['song-'+SongSequence.title] === 'undefined') {
