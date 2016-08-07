@@ -95,6 +95,7 @@ define([
         return;
       }
       pos -= adjustment;
+      if (pos < 0) pos = 0;
       this.songEvents.push({funcName: funcName, pos: pos, func: func});
     },
     registerSongEvents: function() {
@@ -107,7 +108,6 @@ define([
         if (typeof time == 'object') {
           time = this.getTime(time.bar,time.beat);
         }
-        console.log('addSongEvent',funcName,time,rhythm,adjustment);
         this.addSongEvent(funcName,func,time,rhythm,adjustment);
       }
       this.songEvents.sort(function(x,y){

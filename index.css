@@ -7,7 +7,7 @@ body {
   background-color: #000000;
   overflow: hidden;
   transform-origin: 0 0;
-  transition: all 500ms;
+  transition: all 150ms;
 }
 #content-stage {
   position: absolute;

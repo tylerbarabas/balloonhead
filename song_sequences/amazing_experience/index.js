@@ -30,7 +30,7 @@ define([
     this.mouth = new Mouth();
     this.mouth.init();
     this.mouth.style('left','40%');
-    this.mouth.setTransition('500ms');
+    this.mouth.setTransition('150ms');
 
     this.showOpeningText();
 
@@ -106,7 +106,6 @@ define([
 
   SongSequence.prototype.mouthRamble = function(){
       this.mouth.changeSprite('ramble');
-      this.mouthMove();
       this.mouthRotate();
   };
 

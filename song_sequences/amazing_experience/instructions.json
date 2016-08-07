@@ -1,6 +1,7 @@
 {
-  "0":["audioControlsToCorner",{"bar":1,"beat":1},null],
-  "1":["mouthTwitch",{"bar":1,"beat":1},["w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w"],null,500],
-  "2":["mouthStill",{"bar":1,"beat":4},["w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w"],null,500],
-  "3": ["colorChange",{"bar":1,"beat":3},["w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w"],500]
+  "0":["audioControlsToCorner",{"bar":1,"beat":1}],
+  "1":["mouthTwitch",{"bar":2,"beat":2},["w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w"],null,150],
+  "2":["mouthStill",{"bar":2,"beat":3},["w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w"],null,150],
+  "3":["colorChange",{"bar":2,"beat":1},["w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w"],150],
+  "4":["mouthRamble",{"bar":2,"beat":4},["w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w"],null,150]
 }
