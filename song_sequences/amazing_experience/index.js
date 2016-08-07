@@ -30,7 +30,7 @@ define([
     this.mouth = new Mouth();
     this.mouth.init();
     this.mouth.style('left','40%');
-    this.mouth.setTransition('500ms');
+    // this.mouth.setTransition('100ms');
 
     this.showOpeningText();
 
@@ -95,21 +95,18 @@ define([
   SongSequence.prototype.mouthStill = function() {
       this.mouth.changeSprite('idle');
       this.mouthMove();
-      this.colorChange();
       this.mouthRotate();
   };
 
   SongSequence.prototype.mouthTwitch = function() {
       this.mouth.changeSprite('twitch');
       this.mouthMove();
-      this.colorChange();
       this.mouthRotate();
   };
 
   SongSequence.prototype.mouthRamble = function(){
       this.mouth.changeSprite('ramble');
       this.mouthMove();
-      this.colorChange();
       this.mouthRotate();
   };
 

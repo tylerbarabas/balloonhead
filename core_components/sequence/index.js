@@ -78,8 +78,9 @@ define([
         this.stopTicker();
         return;
       }
-      var position = this.getPosition();
-      if (this.songEvents[0].pos < position) {
+
+      if (this.songEvents[0].pos <= this.getPosition()) {
+
         this.songEvents[0].func();
         this.songEvents.shift();
       }
@@ -87,29 +88,34 @@ define([
     stopTicker: function() {
       clearInterval(this.ticker);
     },
-    addSongEvent: function(func,pos,rhythm) {
+    addSongEvent: function(funcName,func,pos,rhythm) {
       rhythm = rhythm || false;
       if (typeof rhythm === 'object') {
-        this.parseRhythm(pos, func,rhythm);
+        this.parseRhythm(funcName, pos, func,rhythm);
         return;
       }
-      this.songEvents.push({pos: pos, func: func});
+      this.songEvents.push({funcName: funcName, pos: pos, func: func});
     },
     registerSongEvents: function() {
       for (var i in this.instructions){
         var func = this[this.instructions[i][0]].bind(this),
+            funcName = this.instructions[i][0],
             time = this.instructions[i][1],
             rhythm = this.instructions[i][2];
         if (typeof time == 'object') {
           time = this.getTime(time.bar,time.beat);
         }
-        this.addSongEvent(func,time,rhythm);
+        this.addSongEvent(funcName,func,time,rhythm);
       }
+      this.songEvents.sort(function(x,y){
+        return x.pos - y.pos;
+      });
+      console.log('Song Events',JSON.parse(JSON.stringify(this.songEvents)));
     },
-    parseRhythm: function(originalPos, originalFunc, rhythm) {
+    parseRhythm: function(funcName, originalPos, func, rhythm) {
       var addTime = originalPos;
       for (var i=0;i<rhythm.length;i++) {
-        this.addSongEvent(originalFunc,addTime);
+        this.addSongEvent(funcName,func,addTime);
         var current = rhythm[i].toLowerCase().split('');
         for (var j=0;j<current.length;j++) {
           switch(current[j]) {
