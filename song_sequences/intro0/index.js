@@ -55,7 +55,7 @@ define([
   };
 
   Song.prototype.showOpeningText = function() {
-    this.iAmYou = new ItemText('I am you.');
+    this.iAmYou = new ItemText('Fuck bitches');
     this.iAmYou.init();
     this.iAmYou.dom.className = 'i-am-you-text-container';
     this.iAmYou.setTransition('1s');
@@ -63,7 +63,7 @@ define([
       this.iAmYou.dom.style.opacity = 1;
     }.bind(this),500);
 
-    this.youAreMe = new ItemText('You are me.');
+    this.youAreMe = new ItemText('Get money');
     this.youAreMe.init();
     this.youAreMe.dom.className = 'you-are-me-text-container';
     this.youAreMe.setTransition('1s');

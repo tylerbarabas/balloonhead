@@ -14,7 +14,7 @@ define([
 
   Song.prototype.init = function() {
 
-    this.audioPath = this.rootPath + 'intro/demosong.mp3';
+    this.audioPath = this.rootPath + 'intro/brightlighters.mp3';
     this.title = 'Spacy Three Beat';
     this.bpm = 180;
     this.timeSignature = '3/4';
