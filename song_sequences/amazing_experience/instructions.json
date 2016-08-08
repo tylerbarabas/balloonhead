@@ -1,7 +1,7 @@
 {
   "0":["audioControlsToCorner",{"bar":1,"beat":1}],
-  "1":["mouthTwitch",{"bar":2,"beat":2},["w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w"],null,150],
-  "2":["mouthStill",{"bar":2,"beat":4},["w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w"],null,150],
-  "3":["colorChange",{"bar":2,"beat":1},["w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w"],150],
-  "4":["mouthRamble",{"bar":2,"beat":3},["w","w","w","w","w","w","w","w","w","w","w","w","w","w","w","w"],null,150]
+  "1":["mouthTwitch",{"bar":2,"beat":2},"100w",null,150],
+  "2":["mouthStill",{"bar":2,"beat":4},"100w",null,150],
+  "3":["colorChange",{"bar":2,"beat":1},"100w",150],
+  "4":["mouthRamble",{"bar":2,"beat":3},"100w",null,150]
 }

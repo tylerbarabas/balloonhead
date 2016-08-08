@@ -6,7 +6,7 @@ define([
   'lib/soundjs/lib/soundjs-0.6.2.min'
 ],function(AudioPlayer,AudioControls){
 
-  function SongSequence () {
+  function Sequence () {
     this.title = null;
     this.audioPath = null;
     this.bpm = null;
@@ -24,7 +24,7 @@ define([
     this.cjs = false;
   }
 
-  SongSequence.prototype = {
+  Sequence.prototype = {
 
     init: function() {
       AudioPlayer.addEvent('songLoaded',this.onFileLoad.bind(this));
@@ -62,7 +62,7 @@ define([
       return parseInt(((bar-1) * this.time.bar) + ((beat-1) * this.time.beat));
     },
     play: function() {
-      this.ticker = setInterval(this.tick.bind(this),10);
+      this.ticker = setInterval(this.tick.bind(this),1);
       AudioPlayer.play(this.title);
       this.playing = true;
       AudioControls.togglePlayPauseBtn(true);
@@ -78,9 +78,9 @@ define([
         this.stopTicker();
         return;
       }
-
-      if (this.songEvents[0].pos <= this.getPosition()) {
-
+      this.position = this.getPosition();
+	
+      if (this.songEvents[0].pos <= this.position) {
         this.songEvents[0].func();
         this.songEvents.shift();
       }
@@ -90,7 +90,7 @@ define([
     },
     addSongEvent: function(funcName,func,pos,rhythm,adjustment) {
       rhythm = rhythm || false;
-      if (typeof rhythm === 'object') {
+      if (typeof rhythm === 'object' || typeof rhythm === 'string') {
         this.parseRhythm(funcName, pos, func,rhythm,adjustment);
         return;
       }
@@ -117,32 +117,76 @@ define([
     },
     parseRhythm: function(funcName, originalPos, func, rhythm, adjustment) {
       var addTime = originalPos;
-      for (var i=0;i<rhythm.length;i++) {
-        this.addSongEvent(funcName,func,addTime,null,adjustment);
-        var current = rhythm[i].toLowerCase().split('');
-        for (var j=0;j<current.length;j++) {
-          switch(current[j]) {
-            case 'b': addTime += this.time.bar;
-              break;
-            case 'w': addTime += this.time.wholeNote;
-              break;
-            case 'h': addTime += this.time.halfNote;
-              break;
-            case 'q': addTime += this.time.quarterNote;
-              break;
-            case 'e': addTime += this.time.eighthNote;
-              break;
-            case 's': addTime += this.time.sixteenthNote;
-              break;
-            case 't': addTime += this.time.thirtySecondNote;
-              break;
-            case 'z': addTime += this.time.eighthNoteTriplet;
-              break;
-            case 'x': addTime += this.time.sixteenthNoteTriplet;
-              break;
-          }
-        }
-      }
+	console.log('Parse Rhythm',typeof rhythm);
+      if (typeof rhythm === 'object') {
+	      for (var i=0;i<rhythm.length;i++) {
+		this.addSongEvent(funcName,func,addTime,null,adjustment);
+		var current = rhythm[i].toLowerCase().split('');
+		for (var j=0;j<current.length;j++) {
+		  switch(current[j]) {
+		    case 'b': addTime += this.time.bar;
+		      break;
+		    case 'w': addTime += this.time.wholeNote;
+		      break;
+		    case 'h': addTime += this.time.halfNote;
+		      break;
+		    case 'q': addTime += this.time.quarterNote;
+		      break;
+		    case 'e': addTime += this.time.eighthNote;
+		      break;
+		    case 's': addTime += this.time.sixteenthNote;
+		      break;
+		    case 't': addTime += this.time.thirtySecondNote;
+		      break;
+		    case 'z': addTime += this.time.eighthNoteTriplet;
+		      break;
+		    case 'x': addTime += this.time.sixteenthNoteTriplet;
+		      break;
+		  }
+		}
+	      }
+       } else if (typeof rhythm === 'string') {
+	 var leadingNumber = '';
+	 var arr = rhythm.split('');
+	 while (!isNaN(parseInt(arr[0]))){
+	    leadingNumber += arr[0];
+	    arr.shift();
+	 }
+	 leadingNumber = (leadingNumber !== '')?parseInt(leadingNumber):2;
+	
+	 var valueToRepeat = 0;
+         for(var i=0;i<arr.length;i++) {
+	   valueToRepeat += this.addTime(arr[i]);
+	 }
+	 for(var i=0;i<leadingNumber;i++) {
+	   this.addSongEvent(funcName,func,addTime,null,adjustment);
+	   addTime += valueToRepeat;
+	 }
+       }
+    },
+    addTime: function(note) {
+	var value = 0;
+	switch(note) {
+	    case 'b': value = this.time.bar;
+	      break;
+	    case 'w': value = this.time.wholeNote;
+	      break;
+	    case 'h': value = this.time.halfNote;
+	      break;
+	    case 'q': value = this.time.quarterNote;
+	      break;
+	    case 'e': value = this.time.eighthNote;
+	      break;
+	    case 's': value = this.time.sixteenthNote;
+	      break;
+	    case 't': value = this.time.thirtySecondNote;
+	      break;
+	    case 'z': value = this.time.eighthNoteTriplet;
+	      break;
+	    case 'x': value = this.time.sixteenthNoteTriplet;
+	      break;
+	}
+	return value;
     },
     stop: function() {
       this.playing = false;
@@ -167,6 +211,6 @@ define([
     }
   };
 
-  return SongSequence;
+  return Sequence;
 
 });
