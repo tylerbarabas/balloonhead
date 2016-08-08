@@ -2,6 +2,6 @@
   "0":["audioControlsToCorner",{"bar":1,"beat":1}],
   "1":["mouthTwitch",{"bar":2,"beat":2},"100w",null,150],
   "2":["mouthStill",{"bar":2,"beat":4},"100w",null,150],
-  "3":["colorChange",{"bar":2,"beat":1},"100w",150],
+  "3":["colorChange",{"bar":2,"beat":1},"100w"],
   "4":["mouthRamble",{"bar":2,"beat":3},"100w",null,150]
 }
