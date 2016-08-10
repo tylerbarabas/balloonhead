@@ -129,6 +129,60 @@ define([
     this.mouth.style('transform','rotate('+rand+'deg)');
   };
 
+  SongSequence.prototype.createCircle = function() {
+    this.circle = document.createElement('div');
+    this.circle.id = 'circle';
+
+    this.circle.style.height = '40px';
+    this.circle.style.width = '40px';
+    this.circle.style.transition = 'all 70ms';
+    this.circle.style.position = 'absolute';
+    this.circle.style.top = '50px';
+    this.circle.style.right = '50px';
+    this.circle.style.backgroundColor = '#000';
+    this.circle.style.borderRadius = '50px';
+
+    this.circle.grow = function() {
+      this.circle.style.transform = 'scale(2)';
+    };
+    this.circle.shrink = function() {
+      this.circle.removeEventListener('transitionend',this.circle.shrink.bind(this));
+      this.circle.style.transform = 'scale(1)';
+    };
+
+    this.square = document.createElement('div');
+    this.square.id = 'square';
+
+    this.square.style.height = '40px';
+    this.square.style.width = '40px';
+    this.square.style.transition = 'all 70ms';
+    this.square.style.position = 'absolute';
+    this.square.style.top = '50px';
+    this.square.style.right = '170px';
+    this.square.style.backgroundColor = '#000';
+
+    this.square.grow = function() {
+      this.square.style.transform = 'scale(3)';
+    };
+    this.square.shrink = function() {
+      this.square.removeEventListener('transitionend',this.square.shrink.bind(this));
+      this.square.style.transform = 'scale(1)';
+    };
+
+    this.stage.dom.appendChild(this.circle);
+    this.stage.dom.appendChild(this.square);
+  };
+
+  SongSequence.prototype.thumpCircle = function() {
+     this.circle.addEventListener('transitionend',this.circle.shrink.bind(this));
+     this.circle.grow.call(this);
+  };
+
+  SongSequence.prototype.thumpSquare = function() {
+     this.square.addEventListener('transitionend',this.square.shrink.bind(this));
+     this.square.grow.call(this);
+  };
+
   if (typeof window['song-'+SongSequence.title] === 'undefined') {
 		window['song-'+SongSequence.title] = new SongSequence();
 	}

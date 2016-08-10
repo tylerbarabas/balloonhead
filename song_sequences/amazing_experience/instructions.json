@@ -1,7 +1,10 @@
 {
   "0":["audioControlsToCorner",{"bar":1,"beat":1}],
-  "1":["mouthTwitch",{"bar":2,"beat":2},"100w",null,150],
-  "2":["mouthStill",{"bar":2,"beat":4},"100w",null,150],
-  "3":["colorChange",{"bar":2,"beat":1},"100w"],
-  "4":["mouthRamble",{"bar":2,"beat":3},"100w",null,150]
+  "1":["mouthTwitch",{"bar":2,"beat":2},["w"],100,-150],
+  "2":["mouthStill",{"bar":2,"beat":4},["100"],100,-150],
+  "3":["colorChange",{"bar":2,"beat":1},["h"],100,-100],
+  "4":["mouthRamble",{"bar":2,"beat":3},["w"],100,-150],
+  "5":["createCircle",{"bar":1,"beat":1}],
+  "6":["thumpCircle",{"bar": 2,"beat":"1"},["qes","s","e","q","e"],100,-100],
+  "7":["thumpSquare",{"bar": 2,"beat":"2"},["h"],200,-100]
 }
