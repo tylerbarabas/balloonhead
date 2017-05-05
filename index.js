@@ -1,7 +1,7 @@
 define([
-  'songs/amazing_experience/index',
+  'songs/everything_vibrates/index',
   'core/stage/index'
-],function(AmazingExperience,Stage){
+],function(EverythingVibrates,Stage){
 
   function MainController() {
 
@@ -10,7 +10,7 @@ define([
   MainController.prototype = {
     init: function() {
       Stage.init();
-      AmazingExperience.init();
+      EverythingVibrates.init();
     }
   };
 
