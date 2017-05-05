@@ -17,8 +17,8 @@
       },
       "ramble": {
         "next": true,
-        "frames": [0,1,2,3,4,5,6,7],
-        "speed": 0.5
+        "frames": [1,8,3,7,4,6,5],
+        "speed": 0.2
       }
   },
   "images": ["/project_components/mouth/img/bbmouth1.png"],

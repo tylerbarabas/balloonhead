@@ -13,11 +13,10 @@ define([
 
   bbstump.prototype.init = function() {
     this.dom.id = 'bbstump';
-    this.style('height','400px');
     this.style('position','absolute');
     this.style('left','210px');
     this.style('bottom','-60px');
-    this.style('border-radius','130px');
+    this.style('height','400px');
 
     SpriteSheet.prototype.init.call(this);
   };
