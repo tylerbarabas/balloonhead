@@ -15,8 +15,8 @@ define([
     this.dom.id = 'bbstump';
     this.style('height','400px');
     this.style('position','absolute');
-    this.style('left','30%');
-    this.style('top','100px');
+    this.style('left','210px');
+    this.style('bottom','-60px');
     this.style('border-radius','130px');
 
     SpriteSheet.prototype.init.call(this);

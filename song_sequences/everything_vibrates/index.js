@@ -29,6 +29,7 @@ define([
 
     this.bbstump = new BBStump();
     this.bbstump.init();
+    this.bbstump.changeSprite('idle');
 
     Sequence.prototype.init.call(this);
   };
