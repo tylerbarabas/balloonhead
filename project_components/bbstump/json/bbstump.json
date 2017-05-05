@@ -1,13 +1,13 @@
 {
   "frames": [
+    [1,1,893,892],
     [896,1,893,892],
     [1791,1,893,892],
     [2686,1,893,892],
-    [1,894,893,892],
+    [1,895,893,892],
     [896,895,893,892],
     [1791,895,893,892],
-    [2686,895,893,892],
-    [1,1,893,891]
+    [2686,895,893,891]
   ],
 	"animations": {
         "idle": {
@@ -16,10 +16,10 @@
         },
         "ramble": {
             "next": true,
-            "frames": [1,2,3,5,6,7],
+            "frames": [0,1,2,3,4,5,6,7],
             "speed": 0.3
         }
 	},
-	"images": ["/project_components/bbstump/img/bbstump1.png"],
+	"images": ["/project_components/bbstump/img/bbstump2.png"],
     "size": {"height": 894, "width": 892}
 }
