@@ -3,9 +3,9 @@ define([
   'text!songs/everything_vibrates/instructions.json',
   'core/stage/index',
   'project/audio_controls/index',
-  'project/item_text/index',
-  'project/bbstump/index'
-],function(Sequence,Instructions,Stage,AudioControls,ItemText,BBStump){
+  'project/bbstump/index',
+  'project/mouth/index',
+],function(Sequence,Instructions,Stage,AudioControls,BBStump,Mouth){
 
   function EverythingVibrates() {
     Sequence.call(this);
@@ -17,7 +17,7 @@ define([
   EverythingVibrates.prototype.init = function() {
 
     this.audioPath = this.rootPath + 'everything_vibrates/snd/amazing_experience.mp3';
-    this.title = 'amazing_experience';
+    this.title = 'Everything Vibrates';
     this.bpm = 105;
     this.timeSignature = '4/4';
 
@@ -30,6 +30,10 @@ define([
     this.bbstump = new BBStump();
     this.bbstump.init();
     this.bbstump.changeSprite('idle');
+
+    this.mouth = new Mouth();
+    this.mouth.init();
+    this.mouth.changeSprite('idle');
 
     Sequence.prototype.init.call(this);
   };
@@ -53,6 +57,7 @@ define([
 
   EverythingVibrates.prototype.startStumpAnim = function() {
     this.bbstump.changeSprite('ramble');
+    this.mouth.changeSprite('ramble');
   };
 
   if (typeof window['song-'+EverythingVibrates.title] === 'undefined') {

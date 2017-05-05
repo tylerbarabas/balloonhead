@@ -1,10 +1,10 @@
 {
-  "frames": {"width":750, "height":1000, "regX": 0, "regY":0, "spacing":0, "margin":0},
+  "frames": {"width":1021, "height":892, "regX": 0, "regY":0, "spacing":0, "margin":0},
 	"animations": {
 
     "idle": {
       "next": false,
-      "frames": [7]
+      "frames": [5]
     },
     "ramble": {
         "next": true,
@@ -17,5 +17,5 @@
       "speed": 0.5
     }
 	},
-	"images": ["/project_components/mouth/img/mouth-strip-med.png"]
+	"images": ["/project_components/mouth/img/bbmouth.png"]
 }

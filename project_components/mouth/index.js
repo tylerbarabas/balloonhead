@@ -15,8 +15,8 @@ define([
     this.dom.id = 'mouth';
     this.style('height','500px');
     this.style('position','absolute');
-    this.style('left','40%');
-    this.style('border-radius','130px');
+    this.style('left','100px');
+    this.style('top','290px');
 
     SpriteSheet.prototype.init.call(this);
   };
