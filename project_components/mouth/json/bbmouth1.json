@@ -1,0 +1,93 @@
+{"frames": [
+
+{
+	"filename": "Mouth0001_A.png",
+	"frame": {"x":1,"y":1,"w":89,"h":45},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":431,"y":213,"w":89,"h":45},
+	"sourceSize": {"w":1021,"h":892},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "Mouth0002_E.png",
+	"frame": {"x":92,"y":1,"w":89,"h":38},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":431,"y":215,"w":89,"h":38},
+	"sourceSize": {"w":1021,"h":892},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "Mouth0003_LN.png",
+	"frame": {"x":92,"y":76,"w":65,"h":42},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":442,"y":215,"w":65,"h":42},
+	"sourceSize": {"w":1021,"h":892},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "Mouth0004_TS.png",
+	"frame": {"x":1,"y":48,"w":89,"h":42},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":434,"y":215,"w":89,"h":42},
+	"sourceSize": {"w":1021,"h":892},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "Mouth0005_FV.png",
+	"frame": {"x":92,"y":41,"w":89,"h":33},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":434,"y":215,"w":89,"h":33},
+	"sourceSize": {"w":1021,"h":892},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "Mouth0006_MBP.png",
+	"frame": {"x":1,"y":92,"w":83,"h":31},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":443,"y":217,"w":83,"h":31},
+	"sourceSize": {"w":1021,"h":892},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "Mouth0007_WR.png",
+	"frame": {"x":183,"y":1,"w":66,"h":41},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":451,"y":219,"w":66,"h":41},
+	"sourceSize": {"w":1021,"h":892},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "Mouth0008_O.png",
+	"frame": {"x":159,"y":76,"w":30,"h":45},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":476,"y":218,"w":30,"h":45},
+	"sourceSize": {"w":1021,"h":892},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "Mouth0009_UQ.png",
+	"frame": {"x":191,"y":69,"w":22,"h":31},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":480,"y":225,"w":22,"h":31},
+	"sourceSize": {"w":1021,"h":892},
+	"pivot": {"x":0.5,"y":0.5}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "bbmouth1.png",
+	"format": "RGBA8888",
+	"size": {"w":225,"h":124},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:03cd65ddfd6473e0a27c1b90d437d0eb:330885e411117ed376ab21cf32ead652:64e8a3fc246f072ff4b9391d0375f1f0$"
+}
+}

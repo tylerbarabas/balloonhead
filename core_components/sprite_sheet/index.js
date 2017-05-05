@@ -19,11 +19,11 @@ define([
       this.spritesheet = new createjs.SpriteSheet(this.json);
       this.stage = new createjs.Stage(this.dom);
 
-      this.dom.height = this.json.frames.height;
-			this.dom.width = this.json.frames.width;
+      this.dom.height = this.json.frames.height || this.json.size.height;
+	  this.dom.width = this.json.frames.width || this.json.size.width;
 
       createjs.Ticker.timingMode = createjs.Ticker.RAF;
-			createjs.Ticker.addEventListener("tick", this.stage);
+      createjs.Ticker.addEventListener("tick", this.stage);
 
       this.audioControls = AudioControls;
       this.audioControls.addEvent('pause-btn',this.changeSprite.bind(this,'idle'));

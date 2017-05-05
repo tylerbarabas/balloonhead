@@ -1,21 +1,26 @@
 {
-  "frames": {"width":1021, "height":892, "regX": 0, "regY":0, "spacing":0, "margin":0},
-	"animations": {
-
-    "idle": {
-      "next": false,
-      "frames": [5]
-    },
-    "ramble": {
+  "frames": [
+    [1,1,89,45],
+    [92,1,89,38],
+    [92,76,65,42],
+    [1,48,89,42],
+    [92,41,89,33],
+    [1,92,83,31],
+    [183,1,66,41],
+    [159,76,30,45],
+    [191,69,22,31]
+  ],
+  "animations": {
+      "idle": {
+        "next": false,
+        "frames": [5]
+      },
+      "ramble": {
         "next": true,
         "frames": [0,1,2,3,4,5,6,7],
         "speed": 0.5
-    },
-    "twitch": {
-      "next": true,
-      "frames": [5,6],
-      "speed": 0.5
-    }
-	},
-	"images": ["/project_components/mouth/img/bbmouth.png"]
+      }
+  },
+  "images": ["/project_components/mouth/img/bbmouth1.png"],
+  "size": {"width": 90, "height": 50}
 }

@@ -13,10 +13,10 @@ define([
 
   Mouth.prototype.init = function() {
     this.dom.id = 'mouth';
-    this.style('height','500px');
     this.style('position','absolute');
-    this.style('left','100px');
-    this.style('top','290px');
+    this.style('left','400px');
+    this.style('top','410px');
+    this.style('height','25px');
 
     SpriteSheet.prototype.init.call(this);
   };
