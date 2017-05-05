@@ -99,6 +99,11 @@ define([
     },
     registerSongEvents: function() {
       for (var i in this.instructions){
+        console.log('LOOK',this.instructions[i][0]);
+        if (typeof this[this.instructions[i][0]] === 'undefined') {
+            console.error('Function ' + this.instructions[i][0] + ' not found. Skipping...');
+            continue;
+        }
         var func = this[this.instructions[i][0]].bind(this),
             funcName = this.instructions[i][0],
             time = this.instructions[i][1],
