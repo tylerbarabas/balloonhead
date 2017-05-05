@@ -1,4 +1,4 @@
 {
   "0":["audioControlsToCorner",{"bar":1,"beat":1}],
-  "1":["mouthStill",{"bar":2,"beat":4},["100"],100,-150]
+  "1":["startStumpAnim",{"bar":1,"beat":2}]
 }

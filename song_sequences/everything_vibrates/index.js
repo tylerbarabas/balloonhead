@@ -5,7 +5,7 @@ define([
   'project/audio_controls/index',
   'project/item_text/index',
   'project/bbstump/index'
-],function(Sequence,Instructions,Stage,AudioControls,ItemText,Mouth){
+],function(Sequence,Instructions,Stage,AudioControls,ItemText,BBStump){
 
   function EverythingVibrates() {
     Sequence.call(this);
@@ -27,10 +27,8 @@ define([
     this.audioControls = AudioControls;
     this.audioControls.init();
 
-    this.mouth = new Mouth();
-    this.mouth.init();
-    this.mouth.style('left','40%');
-    this.mouth.setTransition('150ms');
+    this.bbstump = new BBStump();
+    this.bbstump.init();
 
     Sequence.prototype.init.call(this);
   };
@@ -52,8 +50,8 @@ define([
     this.audioControls.playBtn.className =  this.audioControls.playBtn.baseClass + ' top-left';
   };
 
-  EverythingVibrates.prototype.mouthStill = function() {
-      this.mouth.changeSprite('idle');
+  EverythingVibrates.prototype.startStumpAnim = function() {
+    this.bbstump.changeSprite('ramble');
   };
 
   if (typeof window['song-'+EverythingVibrates.title] === 'undefined') {

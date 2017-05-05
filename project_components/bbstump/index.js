@@ -12,10 +12,11 @@ define([
   bbstump.prototype.constructor = SpriteSheet;
 
   bbstump.prototype.init = function() {
-    this.dom.id = 'mouth';
-    this.style('height','500px');
+    this.dom.id = 'bbstump';
+    this.style('height','400px');
     this.style('position','absolute');
-    this.style('left','40%');
+    this.style('left','30%');
+    this.style('top','100px');
     this.style('border-radius','130px');
 
     SpriteSheet.prototype.init.call(this);
