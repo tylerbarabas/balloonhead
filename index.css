@@ -23,7 +23,10 @@ body {
 
   visibility: hidden;
 }
-
+#content-canvas {
+  width: 1200px;
+  height: 650px;
+}
 #three-stage {
   position: absolute;
   width: 1200px;
