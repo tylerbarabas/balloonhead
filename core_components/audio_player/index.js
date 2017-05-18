@@ -33,8 +33,6 @@ define([
       }
       this.playing = true;
 
-      this.cjs.volume = 0;
-
     },
     pause: function() {
       this.cjs.setPaused(true);

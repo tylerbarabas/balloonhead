@@ -16,7 +16,7 @@ define([
 
   EverythingVibrates.prototype.init = function() {
 
-    this.audioPath = this.rootPath + 'everything_vibrates/snd/amazing_experience.mp3';
+    this.audioPath = this.rootPath + 'everything_vibrates/snd/ev.wav';
     this.title = 'Everything Vibrates';
     this.bpm = 105;
     this.timeSignature = '4/4';
