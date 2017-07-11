@@ -1,0 +1,21 @@
+{
+  "name": "floatingballoonhead",
+  "main": "index.js",
+  "homepage": "https://github.com/tylerbarabas/floatingballoonhead",
+  "authors": [
+    "Tyler Barabas <tylerb@d2.com>"
+  ],
+  "description": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "animejs": "^2.0.2"
+  }
+}

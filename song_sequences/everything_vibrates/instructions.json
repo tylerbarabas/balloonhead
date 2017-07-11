@@ -1,5 +1,5 @@
 {
   "0":["audioControlsToCorner",{"bar":1,"beat":1}],
   "1":["startStumpAnim",{"bar":1,"beat":2}],
-  "2":["particles",{"bar":1,"beat":3}]
+  "2":["drawLine",{"bar":1, "beat":3}]
 }

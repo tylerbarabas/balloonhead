@@ -59,7 +59,7 @@ define([
     this.bbstump.changeSprite('ramble');
     this.mouth.changeSprite('ramble');
 
-    var can = document.getElementById('content-canvas');
+/*    var can = document.getElementById('content-canvas');
     h = parseInt(can.getAttribute("height"));
     w=parseInt(can.getAttribute("width"));
 
@@ -72,6 +72,14 @@ define([
     // Fill the path
     hdc.fillStyle = "#000";
     hdc.fillRect(0,0,w,h);
+*/
+  };
+
+  EverythingVibrates.prototype.drawLine = function(){
+    var canvas = document.getElementById('content-canvas'),
+        ctx = canvas.getContext('2d');
+
+    console.log('drawline');
   };
 
   EverythingVibrates.prototype.particles = function(){
