@@ -78,14 +78,12 @@ define([
 
   EverythingVibrates.prototype.showTitleScreen = function(){
 
-    this.titleScreen = new TitleScreen('Everything Vibrates');
+    this.titleScreen = new TitleScreen('...because we are all <u>one</u>.');
 
-    setTimeout(()=>{
       this.titleScreen.show();
       setTimeout(()=>{
         this.titleScreen.hide();
-      }, 5000);
-    },25);
+      }, 7000);
   };
 
   EverythingVibrates.prototype.drawLine = function(){
