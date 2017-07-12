@@ -5,7 +5,8 @@ define([
   'project/audio_controls/index',
   'project/bbstump/index',
   'project/mouth/index',
-],function(Sequence,Instructions,Stage,AudioControls,BBStump,Mouth){
+  'project/titleScreen/index',
+],function(Sequence,Instructions,Stage,AudioControls,BBStump,Mouth,TitleScreen){
 
   function EverythingVibrates() {
     Sequence.call(this);
@@ -73,6 +74,18 @@ define([
     hdc.fillStyle = "#000";
     hdc.fillRect(0,0,w,h);
 */
+  };
+
+  EverythingVibrates.prototype.showTitleScreen = function(){
+
+    this.titleScreen = new TitleScreen('Everything Vibrates');
+
+    setTimeout(()=>{
+      this.titleScreen.show();
+      setTimeout(()=>{
+        this.titleScreen.hide();
+      }, 5000);
+    },25);
   };
 
   EverythingVibrates.prototype.drawLine = function(){

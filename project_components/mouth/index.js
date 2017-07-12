@@ -17,6 +17,7 @@ define([
     this.style('left','400px');
     this.style('top','410px');
     this.style('height','25px');
+    this.style('z-index','2');
 
     SpriteSheet.prototype.init.call(this);
   };

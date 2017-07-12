@@ -1,5 +1,4 @@
 {
   "0":["audioControlsToCorner",{"bar":1,"beat":1}],
-  "1":["startStumpAnim",{"bar":1,"beat":2}],
-  "2":["drawLine",{"bar":1, "beat":3}]
+  "1":["showTitleScreen",{"bar":1, "beat":1}]
 }
