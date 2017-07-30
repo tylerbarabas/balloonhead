@@ -3,10 +3,10 @@ define([
   'text!songs/everything_vibrates/instructions.json',
   'core/stage/index',
   'project/audio_controls/index',
-  'project/bbstump/index',
+  'project/bbwalk/index',
   'project/mouth/index',
   'project/titleScreen/index',
-],function(Sequence,Instructions,Stage,AudioControls,BBStump,Mouth,TitleScreen){
+],function(Sequence,Instructions,Stage,AudioControls,BBWalk,Mouth,TitleScreen){
 
   function EverythingVibrates() {
     Sequence.call(this);
@@ -28,9 +28,9 @@ define([
     this.audioControls = AudioControls;
     this.audioControls.init();
 
-    this.bbstump = new BBStump();
+    this.bbstump = new BBWalk();
     this.bbstump.init();
-    this.bbstump.changeSprite('idle');
+    this.bbstump.changeSprite('walk');
 
     this.mouth = new Mouth();
     this.mouth.init();
