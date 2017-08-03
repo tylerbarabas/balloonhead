@@ -14,7 +14,6 @@ define([
   bbwalk.prototype.init = function() {
     this.dom.id = 'bbwalk';
     this.style('position','absolute');
-    this.style('left','210px');
     this.style('top','100px');
     this.style('z-index','1');
 

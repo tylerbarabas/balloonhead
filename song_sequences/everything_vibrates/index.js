@@ -28,9 +28,27 @@ define([
     this.audioControls = AudioControls;
     this.audioControls.init();
 
-    this.bbstump = new BBWalk();
-    this.bbstump.init();
-    this.bbstump.changeSprite('walk');
+    this.bbstand = new BBWalk();
+    this.bbstand.init();
+    this.bbstand.changeSprite('face_south');
+    this.bbstand.style('left','200px');
+
+    this.bbwalk = new BBWalk();
+    this.bbwalk.init();
+    this.bbwalk.changeSprite('walk_south');
+    this.bbwalk.style('right','200px');
+
+    var directions = ['south','southwest','west','northwest','north','northeast','east','southeast'];
+    var i = 0;
+    setInterval(function(){
+        i++;
+        if (!directions[i]) {
+            i = 0;
+        }
+        var d = directions[i];
+        this.bbstand.changeSprite('face_'+d);
+        this.bbwalk.changeSprite('walk_'+d);
+    }.bind(this),1000);
 
     this.mouth = new Mouth();
     this.mouth.init();
@@ -78,7 +96,7 @@ define([
 
   EverythingVibrates.prototype.showTitleScreen = function(){
 
-    this.titleScreen = new TitleScreen('...because we are all <u>one</u>.');
+    this.titleScreen = new TitleScreen('Some caption...');
 
       this.titleScreen.show();
       setTimeout(()=>{
