@@ -3,10 +3,8 @@ define([
   'text!songs/everything_vibrates/instructions.json',
   'core/stage/index',
   'project/audio_controls/index',
-  'project/bbwalk/index',
-  'project/mouth/index',
   'project/titleScreen/index',
-],function(Sequence,Instructions,Stage,AudioControls,BBWalk,Mouth,TitleScreen){
+],function(Sequence,Instructions,Stage,AudioControls,TitleScreen){
 
   function EverythingVibrates() {
     Sequence.call(this);
@@ -28,32 +26,6 @@ define([
     this.audioControls = AudioControls;
     this.audioControls.init();
 
-    this.bbstand = new BBWalk();
-    this.bbstand.init();
-    this.bbstand.changeSprite('face_south');
-    this.bbstand.style('left','200px');
-
-    this.bbwalk = new BBWalk();
-    this.bbwalk.init();
-    this.bbwalk.changeSprite('walk_south');
-    this.bbwalk.style('right','200px');
-
-    var directions = ['south','southwest','west','northwest','north','northeast','east','southeast'];
-    var i = 0;
-    setInterval(function(){
-        i++;
-        if (!directions[i]) {
-            i = 0;
-        }
-        var d = directions[i];
-        this.bbstand.changeSprite('face_'+d);
-        this.bbwalk.changeSprite('walk_'+d);
-    }.bind(this),1000);
-
-    this.mouth = new Mouth();
-    this.mouth.init();
-    this.mouth.changeSprite('idle');
-
     Sequence.prototype.init.call(this);
   };
 
@@ -72,26 +44,6 @@ define([
     this.audioControls.dom.className = 'top-left';
     this.audioControls.pauseBtn.className = this.audioControls.pauseBtn.baseClass + ' top-left';
     this.audioControls.playBtn.className =  this.audioControls.playBtn.baseClass + ' top-left';
-  };
-
-  EverythingVibrates.prototype.startStumpAnim = function() {
-    this.bbstump.changeSprite('ramble');
-    this.mouth.changeSprite('ramble');
-
-/*    var can = document.getElementById('content-canvas');
-    h = parseInt(can.getAttribute("height"));
-    w=parseInt(can.getAttribute("width"));
-
-    // get it's context
-    hdc = can.getContext('2d');
-
-    hdc.strokeStyle = 'red';
-    hdc.lineWidth = 2;
-
-    // Fill the path
-    hdc.fillStyle = "#000";
-    hdc.fillRect(0,0,w,h);
-*/
   };
 
   EverythingVibrates.prototype.showTitleScreen = function(){
