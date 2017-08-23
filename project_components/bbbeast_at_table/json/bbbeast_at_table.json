@@ -1,0 +1,18 @@
+{"frames": [
+	[1,1,968,391],
+	[971,1,968,391],
+	[1,394,968,391],
+	[971,394,968,391]
+  ],
+  "animations": {
+    "drumfingers":{
+      "next": true,
+      "frames": [0,1,2,3],
+      "speed": 0.2
+    }
+  },
+  "images": [
+    "/project_components/bbbeast_at_table/img/bbbeast_at_table.png"
+  ],
+  "size": {"width": 1200, "height": 650}
+}

@@ -4,7 +4,8 @@ define([
   'core/stage/index',
   'project/audio_controls/index',
   'project/titleScreen/index',
-],function(Sequence,Instructions,Stage,AudioControls,TitleScreen){
+  'project/bbbeast_at_table/index',
+],function(Sequence,Instructions,Stage,AudioControls,TitleScreen,bbbeastAtTable){
 
   function EverythingVibrates() {
     Sequence.call(this);
@@ -25,6 +26,10 @@ define([
     this.stage = Stage;
     this.audioControls = AudioControls;
     this.audioControls.init();
+
+    this.sprite = new bbbeastAtTable();
+    this.sprite.init();
+    this.sprite.changeSprite('drumfingers');
 
     Sequence.prototype.init.call(this);
   };
