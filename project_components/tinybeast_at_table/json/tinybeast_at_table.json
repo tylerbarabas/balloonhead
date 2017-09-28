@@ -1,0 +1,18 @@
+{"frames": [
+	[1,1,742,345],
+	[1,348,742,345],
+	[745,1,742,345],
+	[745,348,742,345]
+  ],
+  "animations": {
+    "drumfingers":{
+      "next": true,
+      "frames": [0,1,2,3],
+      "speed": 0.1
+    }
+  },
+  "images": [
+    "/project_components/tinybeast_at_table/img/tinybeast_at_table.png"
+  ],
+  "size": {"width": 1488, "height": 694}
+}

@@ -4,7 +4,7 @@ define([
   'core/stage/index',
   'project/audio_controls/index',
   'project/titleScreen/index',
-  'project/bbbeast_at_table/index',
+  'project/tinybeast_at_table/index',
 ],function(Sequence,Instructions,Stage,AudioControls,TitleScreen,bbbeastAtTable){
 
   function EverythingVibrates() {
